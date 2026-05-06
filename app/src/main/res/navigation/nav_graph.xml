@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.futo123.metro2026dp.ui.home.HomeFragment"
+        android:label="Метро 2026"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_menu"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_home_to_settings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.futo123.metro2026dp.ui.menu.MenuFragment"
+        android:label="Меню"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menu_to_general"
+            app:destination="@id/generalInfoFragment" />
+        <action
+            android:id="@+id/action_menu_to_map"
+            app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_menu_to_trains_list"
+            app:destination="@id/trainsListFragment" />
+        <action
+            android:id="@+id/action_menu_to_stations_list"
+            app:destination="@id/stationsListFragment" />
+        <action
+            android:id="@+id/action_menu_to_about"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_menu_to_help"
+            app:destination="@id/helpFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/stationsListFragment"
+        android:name="com.futo123.metro2026dp.ui.stations.StationsListFragment"
+        android:label="Станции" >
+        <action
+            android:id="@+id/action_stations_to_detail"
+            app:destination="@id/stationDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/stationDetailFragment"
+        android:name="com.futo123.metro2026dp.ui.stations.StationDetailFragment"
+        android:label="О станции" >
+        <argument
+            android:name="stationId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/trainsListFragment"
+        android:name="com.futo123.metro2026dp.ui.trains.TrainsListFragment"
+        android:label="Электропоезда" >
+        <action
+            android:id="@+id/action_trains_to_detail"
+            app:destination="@id/trainDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/trainDetailFragment"
+        android:name="com.futo123.metro2026dp.ui.trains.TrainDetailFragment"
+        android:label="О поезде" >
+        <argument
+            android:name="trainId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/generalInfoFragment"
+        android:name="com.futo123.metro2026dp.ui.general.GeneralInfoFragment"
+        android:label="Общая информация" />
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.futo123.metro2026dp.ui.map.MapFragment"
+        android:label="Интерактивная карта">
+        <action
+            android:id="@+id/action_map_to_station_detail"
+            app:destination="@id/stationDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.futo123.metro2026dp.ui.about.AboutFragment"
+        android:label="О приложении" />
+
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.futo123.metro2026dp.ui.help.HelpFragment"
+        android:label="Справка" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.futo123.metro2026dp.ui.settings.SettingsFragment"
+        android:label="Настройки" />
+</navigation>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <style>
+        body {
+            margin: 0;
+            background: #ffffff;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+    <script>
+        function stationClick(name) {
+            if (typeof Android !== 'undefined') {
+                Android.showStation(name);
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div id="map">
+    <!-- Основное изображение карты -->
+    <img src="file:///android_asset/map_site_2025_12_rus.png"
+         alt="Интерактивная карта метрополитена Санкт-Петербурга"
+         usemap="#stations">
+
+    <!-- Кликабельные зоны -->
+    <map name="stations">
+        <!-- Кировско-Выборгская линия -->
+        <area shape="rect" coords="102,921,178,947" onclick="stationClick('Проспект Ветеранов')">
+        <area shape="rect" coords="98,875,178,902" onclick="stationClick('Ленинский проспект')">
+        <area shape="rect" coords="118,845,178,865" onclick="stationClick('Автово')">
+        <area shape="rect" coords="156,808,169,835" onclick="stationClick('Кировский завод')">
+        <area shape="rect" coords="95,781,154,807" onclick="stationClick('Кировский завод')"> <!-- вторая область -->
+        <area shape="rect" coords="167,764,220,800" onclick="stationClick('Нарвская')">
+        <area shape="rect" coords="237,727,303,762" onclick="stationClick('Балтийская')">
+        <area shape="rect" coords="414,675,429,705" onclick="stationClick('Технологический институт 1')">
+        <area shape="rect" coords="260,662,412,674" onclick="stationClick('Технологический институт 1')">
+        <area shape="rect" coords="491,611,560,624" onclick="stationClick('Пушкинская')">
+        <area shape="rect" coords="492,638,508,668" onclick="stationClick('Пушкинская')">
+        <area shape="rect" coords="522,539,603,551" onclick="stationClick('Владимирская')">
+        <area shape="rect" coords="600,552,613,579" onclick="stationClick('Владимирская')">
+        <area shape="rect" coords="628,472,735,483" onclick="stationClick('Площадь Восстания')">
+        <area shape="rect" coords="614,480,627,503" onclick="stationClick('Площадь Восстания')">
+        <area shape="rect" coords="604,427,707,447" onclick="stationClick('Чернышевская')">
+        <area shape="rect" coords="604,368,717,388" onclick="stationClick('Площадь Ленина')">
+        <area shape="rect" coords="604,322,693,342" onclick="stationClick('Выборгская')">
+        <area shape="rect" coords="603,274,665,294" onclick="stationClick('Лесная')">
+        <area shape="rect" coords="603,191,731,211" onclick="stationClick('Площадь Мужества')">
+        <area shape="rect" coords="603,152,721,172" onclick="stationClick('Политехническая')">
+        <area shape="rect" coords="603,115,711,135" onclick="stationClick('Академическая')">
+        <area shape="rect" coords="603,67,751,87" onclick="stationClick('Гражданский проспект')">
+        <area shape="rect" coords="604,18,685,38" onclick="stationClick('Девяткино')">
+
+        <!-- Московско-Петроградская линия -->
+        <area shape="rect" coords="420,18,483,38" onclick="stationClick('Парнас')">
+        <area shape="rect" coords="420,53,513,78" onclick="stationClick('Проспект Просвещения')">
+        <area shape="rect" coords="420,97,480,117" onclick="stationClick('Озерки')">
+        <!-- <area shape="rect" coords="420,142,495,162" onclick="stationClick('Удельная')">  закомментировано в исходнике -->
+        <area shape="rect" coords="420,183,507,203" onclick="stationClick('Пионерская')">
+        <area shape="rect" coords="420,225,514,245" onclick="stationClick('Чёрная речка')">
+        <area shape="rect" coords="420,326,524,346" onclick="stationClick('Петроградская')">
+        <area shape="rect" coords="420,395,512,415" onclick="stationClick('Горьковская')">
+        <area shape="rect" coords="445,460,497,484" onclick="stationClick('Невский проспект')">
+        <area shape="rect" coords="416,478,429,506" onclick="stationClick('Невский проспект')">
+        <area shape="rect" coords="332,579,421,591" onclick="stationClick('Сенная площадь')">
+        <area shape="rect" coords="419,567,433,578" onclick="stationClick('Сенная площадь')">
+        <area shape="rect" coords="260,675,412,689" onclick="stationClick('Технологический институт 2')">
+        <area shape="rect" coords="430,675,445,705" onclick="stationClick('Технологический институт 2')">
+        <area shape="rect" coords="346,745,440,765" onclick="stationClick('Фрунзенская')"> <!-- в HTML закомментировано, но оставим -->
+        <area shape="rect" coords="352,784,440,809" onclick="stationClick('Московские ворота')">
+        <area shape="rect" coords="346,824,440,844" onclick="stationClick('Электросила')">
+        <area shape="rect" coords="375,868,440,893" onclick="stationClick('Парк Победы')"> <!-- закомментировано в исходнике, но здесь оставим -->
+        <area shape="rect" coords="352,911,440,931" onclick="stationClick('Московская')">
+        <area shape="rect" coords="366,940,440,960" onclick="stationClick('Звёздная')">
+        <area shape="rect" coords="371,970,440,990" onclick="stationClick('Купчино')">
+
+        <!-- Невско-Василеостровская линия -->
+        <area shape="rect" coords="100,226,167,246" onclick="stationClick('Беговая')">
+        <area shape="rect" coords="100,297,155,317" onclick="stationClick('Зенит')">
+        <area shape="rect" coords="100,402,190,422" onclick="stationClick('Приморская')">
+        <area shape="rect" coords="195,481,305,514" onclick="stationClick('Василеостровская')">
+        <area shape="rect" coords="445,501,528,513" onclick="stationClick('Гостиный двор')">
+        <area shape="rect" coords="430,478,444,506" onclick="stationClick('Гостиный двор')">
+        <area shape="rect" coords="627,502,700,513" onclick="stationClick('Маяковская')">
+        <area shape="rect" coords="599,480,613,503" onclick="stationClick('Маяковская')">
+        <area shape="rect" coords="785,526,960,538" onclick="stationClick('Площадь Александра Невского 1')">
+        <area shape="rect" coords="754,549,769,580" onclick="stationClick('Площадь Александра Невского 1')">
+        <area shape="rect" coords="760,832,857,852" onclick="stationClick('Елизаровская')">
+        <area shape="rect" coords="760,888,867,908" onclick="stationClick('Ломоносовская')">
+        <area shape="rect" coords="760,943,857,963" onclick="stationClick('Пролетарская')">
+        <area shape="rect" coords="760,999,828,1019" onclick="stationClick('Обухово')">
+        <area shape="rect" coords="760,1057,836,1077" onclick="stationClick('Рыбацкое')">
+
+        <!-- Правобережная линия -->
+        <area shape="rect" coords="182,520,285,553" onclick="stationClick('Горный институт')">
+        <area shape="rect" coords="457,570,509,582" onclick="stationClick('Спасская')">
+        <area shape="rect" coords="437,556,448,575" onclick="stationClick('Спасская')">
+        <area shape="rect" coords="627,540,695,552" onclick="stationClick('Достоевская')">
+        <area shape="rect" coords="614,552,628,579" onclick="stationClick('Достоевская')">
+        <area shape="rect" coords="683,554,747,604" onclick="stationClick('Лиговский проспект')">
+        <area shape="rect" coords="785,539,960,551" onclick="stationClick('Площадь Александра Невского 2')">
+        <area shape="rect" coords="770,549,784,580" onclick="stationClick('Площадь Александра Невского 2')">
+        <area shape="rect" coords="872,615,986,635" onclick="stationClick('Новочеркасская')">
+        <area shape="rect" coords="872,677,960,697" onclick="stationClick('Ладожская')">
+        <area shape="rect" coords="872,762,970,788" onclick="stationClick('Проспект Большевиков')">
+        <area shape="rect" coords="872,831,950,856" onclick="stationClick('Улица Дыбенко')">
+
+        <!-- Фрунзенско-Приморская линия -->
+        <area shape="rect" coords="230,123,337,149" onclick="stationClick('Комендантский проспект')">
+        <area shape="rect" coords="230,184,337,204" onclick="stationClick('Старая деревня')">
+        <area shape="rect" coords="230,300,326,326" onclick="stationClick('Крестовский остров')">
+        <area shape="rect" coords="260,366,347,386" onclick="stationClick('Чкаловская')">
+        <area shape="rect" coords="295,405,383,425" onclick="stationClick('Спортивная')">
+        <area shape="rect" coords="279,433,299,453" onclick="stationClick('Спортивная')">
+        <area shape="rect" coords="379,503,399,523" onclick="stationClick('Адмиралтейская')">
+        <area shape="rect" coords="300,523,391,538" onclick="stationClick('Адмиралтейская')">
+        <area shape="rect" coords="445,539,496,551" onclick="stationClick('Садовая')">
+        <area shape="rect" coords="419,552,433,564" onclick="stationClick('Садовая')">
+        <area shape="rect" coords="528,650,620,663" onclick="stationClick('Звенигородская')">
+        <area shape="rect" coords="509,638,524,668" onclick="stationClick('Звенигородская')">
+        <area shape="rect" coords="557,711,672,730" onclick="stationClick('Обводный канал')">
+        <area shape="rect" coords="596,756,690,775" onclick="stationClick('Волковская')">
+        <area shape="rect" coords="617,832,715,852" onclick="stationClick('Бухарестская')">
+        <area shape="rect" coords="617,889,730,909" onclick="stationClick('Международная')">
+        <area shape="rect" coords="616,944,727,964" onclick="stationClick('Проспект Славы')">
+        <area shape="rect" coords="617,998,702,1018" onclick="stationClick('Дунайская')">
+        <area shape="rect" coords="617,1056,687,1076" onclick="stationClick('Шушары')">
+
+        <!-- Красносельско-Калининская линия -->
+        <area shape="rect" coords="91,843,110,862" onclick="stationClick('Юго-Западная')">
+        <area shape="rect" coords="33,828,110,843" onclick="stationClick('Юго-Западная')">
+        <area shape="rect" coords="170,808,183,835" onclick="stationClick('Путиловская')">
+        <area shape="rect" coords="81,809,153,821" onclick="stationClick('Путиловская')">
+    </map>
+</div>
+
+</body>
+</html>
