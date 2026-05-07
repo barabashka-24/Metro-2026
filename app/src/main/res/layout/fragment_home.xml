@@ -27,6 +27,8 @@
         android:layout_height="348dp"
         android:contentDescription="Эмблема метро"
         android:src="@drawable/home_metro_spb_logo"
+        android:stateListAnimator="@animator/scale_on_touch"
+        android:clickable="true"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +50,7 @@
 
     <ImageButton
         android:id="@+id/btn_menu"
+        android:stateListAnimator="@animator/scale_on_touch"
         android:layout_width="54dp"
         android:layout_height="54dp"
         android:layout_margin="16dp"
@@ -57,10 +60,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
+        app:layout_constraintVertical_bias="0.045"
+
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"/>
 
     <ImageButton
         android:id="@+id/btn_settings"
+        android:stateListAnimator="@animator/scale_on_touch"
         android:layout_width="54dp"
         android:layout_height="54dp"
         android:layout_margin="16dp"
@@ -70,6 +78,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
+        app:layout_constraintVertical_bias="0.045"
+
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

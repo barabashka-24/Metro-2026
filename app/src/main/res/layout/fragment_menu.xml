@@ -46,14 +46,17 @@
         <LinearLayout
             android:id="@+id/btn_general"
             style="@style/Widget.MaterialComponents.Button"
+            android:stateListAnimator="@animator/scale_on_touch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-
             android:background="@drawable/menu_btn_background"
-
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            >
 
             <ImageView
                 android:layout_width="100dp"
@@ -61,7 +64,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:gravity="center"
-                android:src="@drawable/menu_metrospb_btn" />
+                android:src="@drawable/menu_metrospb_btn"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,22 +75,27 @@
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/nunito_regular"
                 android:gravity="center"
-
                 android:text="Метро СПб"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/btn_stations"
             style="@style/Widget.MaterialComponents.Button"
+            android:stateListAnimator="@animator/scale_on_touch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/menu_btn_background"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -141,13 +150,18 @@
         <LinearLayout
             android:id="@+id/btn_trains"
             style="@style/Widget.MaterialComponents.Button"
+            android:stateListAnimator="@animator/scale_on_touch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="1dp"
             android:background="@drawable/menu_btn_background"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageView
                 android:layout_width="100dp"
@@ -174,12 +188,17 @@
         <LinearLayout
             android:id="@+id/btn_map"
             style="@style/Widget.MaterialComponents.Button"
+            android:stateListAnimator="@animator/scale_on_touch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/menu_btn_background"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageView
                 android:layout_width="100dp"
@@ -223,8 +242,13 @@
         <LinearLayout
             android:id="@+id/btn_help"
             style="?android:attr/buttonBarButtonStyle"
+            android:stateListAnimator="@animator/scale_on_touch"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
             >
 
             <ImageView
@@ -247,8 +271,13 @@
         <LinearLayout
             android:id="@+id/btn_about"
             style="?android:attr/buttonBarButtonStyle"
+            android:stateListAnimator="@animator/scale_on_touch"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
             >
 
             <ImageView

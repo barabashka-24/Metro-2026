@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.futo123.metro2026dp.ui.home.HomeFragment"
+        android:name="com.futo123.metro2026.ui.home.HomeFragment"
         android:label="Метро 2026"
         tools:layout="@layout/fragment_home">
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.futo123.metro2026dp.ui.menu.MenuFragment"
+        android:name="com.futo123.metro2026.ui.menu.MenuFragment"
         android:label="Меню"
         tools:layout="@layout/fragment_menu">
         <action
@@ -45,7 +45,7 @@
 
     <fragment
         android:id="@+id/stationsListFragment"
-        android:name="com.futo123.metro2026dp.ui.stations.StationsListFragment"
+        android:name="com.futo123.metro2026.ui.stations.StationsListFragment"
         android:label="Станции" >
         <action
             android:id="@+id/action_stations_to_detail"
@@ -54,7 +54,7 @@
 
     <fragment
         android:id="@+id/stationDetailFragment"
-        android:name="com.futo123.metro2026dp.ui.stations.StationDetailFragment"
+        android:name="com.futo123.metro2026.ui.stations.StationDetailFragment"
         android:label="О станции" >
         <argument
             android:name="stationId"
@@ -63,7 +63,7 @@
 
     <fragment
         android:id="@+id/trainsListFragment"
-        android:name="com.futo123.metro2026dp.ui.trains.TrainsListFragment"
+        android:name="com.futo123.metro2026.ui.trains.TrainsListFragment"
         android:label="Электропоезда" >
         <action
             android:id="@+id/action_trains_to_detail"
@@ -72,7 +72,7 @@
 
     <fragment
         android:id="@+id/trainDetailFragment"
-        android:name="com.futo123.metro2026dp.ui.trains.TrainDetailFragment"
+        android:name="com.futo123.metro2026.ui.trains.TrainDetailFragment"
         android:label="О поезде" >
         <argument
             android:name="trainId"
@@ -81,12 +81,12 @@
 
     <fragment
         android:id="@+id/generalInfoFragment"
-        android:name="com.futo123.metro2026dp.ui.general.GeneralInfoFragment"
+        android:name="com.futo123.metro2026.ui.general.GeneralInfoFragment"
         android:label="Общая информация" />
 
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.futo123.metro2026dp.ui.map.MapFragment"
+        android:name="com.futo123.metro2026.ui.map.MapFragment"
         android:label="Интерактивная карта">
         <action
             android:id="@+id/action_map_to_station_detail"
@@ -95,16 +95,16 @@
 
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.futo123.metro2026dp.ui.about.AboutFragment"
+        android:name="com.futo123.metro2026.ui.about.AboutFragment"
         android:label="О приложении" />
 
     <fragment
         android:id="@+id/helpFragment"
-        android:name="com.futo123.metro2026dp.ui.help.HelpFragment"
+        android:name="com.futo123.metro2026.ui.help.HelpFragment"
         android:label="Справка" />
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.futo123.metro2026dp.ui.settings.SettingsFragment"
+        android:name="com.futo123.metro2026.ui.settings.SettingsFragment"
         android:label="Настройки" />
 </navigation>
