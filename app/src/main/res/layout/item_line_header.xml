@@ -1,33 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="12dp"
     android:gravity="center_vertical"
     android:background="?attr/selectableItemBackground"
+    app:cardElevation="4dp"
+    android:foreground="?attr/selectableItemBackground"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
 
-    <View
+    <ImageView
         android:id="@+id/line_color_bar"
-        android:layout_width="8dp"
-        android:layout_height="40dp"
-        android:background="#000000" /> <!-- цвет будет переопределён программно -->
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:src="@drawable/stations_line_1_icon"
+        android:clickable="true"
+        />
 
     <TextView
         android:id="@+id/line_name"
+        android:gravity="center"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_weight="1"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginStart="12dp" />
+        android:textSize="22sp"
+        tools:text="Красносельско - Калининская"
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="12dp"
+        />
 
     <TextView
         android:id="@+id/expand_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="▶"
-        android:textSize="18sp" />
+        android:layout_width="25dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text=">"
+        android:fontFamily="@font/nunito_bold"
+        android:textSize="30sp"
+        android:textColor="@color/black"/>
 </LinearLayout>

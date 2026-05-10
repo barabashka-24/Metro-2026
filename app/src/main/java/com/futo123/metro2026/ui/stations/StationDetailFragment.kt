@@ -52,7 +52,7 @@ class StationDetailFragment : Fragment() {
                     binding.stationImage.setImageResource(station.imageResId)
 
                     // Название станции
-                    binding.stationName.text = station.name
+                    binding.stationName.text = Html.fromHtml(station.name, Html.FROM_HTML_MODE_LEGACY)
 
                     // Описание (поддерживаем HTML, если history содержит теги)
                     binding.stationHistory.text =

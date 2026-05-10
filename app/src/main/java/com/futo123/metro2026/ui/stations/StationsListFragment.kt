@@ -37,12 +37,12 @@ class StationsListFragment : Fragment() {
             val allStations = repository.getAllStations()
             // Группировка по lineId (1-6)
             val lines = listOf(
-                MetroLine(1, "Кировско-Выборгская", R.color.line_red, allStations.filter { it.lineId == 1 }),
-                MetroLine(2, "Московско-Петроградская", R.color.line_blue, allStations.filter { it.lineId == 2 }),
-                MetroLine(3, "Невско-Василеостровская", R.color.line_green, allStations.filter { it.lineId == 3 }),
-                MetroLine(4, "Правобережная", R.color.line_orange, allStations.filter { it.lineId == 4 }),
-                MetroLine(5, "Фрунзенско-Приморская", R.color.line_purple, allStations.filter { it.lineId == 5 }),
-                MetroLine(6, "Красносельско-Калининская", R.color.line_brown, allStations.filter { it.lineId == 6 })
+                MetroLine(1, "Кировско - Выборгская", R.drawable.stations_line_1_icon, allStations.filter { it.lineId == 1 }),
+                MetroLine(2, "Московско - Петроградская", R.drawable.stations_line_2_icon, allStations.filter { it.lineId == 2 }),
+                MetroLine(3, "Невско - Василеостровская", R.drawable.stations_line_3_icon, allStations.filter { it.lineId == 3 }),
+                MetroLine(4, "Правобережная", R.drawable.stations_line_4_icon, allStations.filter { it.lineId == 4 }),
+                MetroLine(5, "Фрунзенско - Приморская", R.drawable.stations_line_5_icon, allStations.filter { it.lineId == 5 }),
+                MetroLine(6, "Красносельско - Калининская", R.drawable.stations_line_6_icon, allStations.filter { it.lineId == 6 })
             )
 
             // Переключаемся на главный поток для работы с UI

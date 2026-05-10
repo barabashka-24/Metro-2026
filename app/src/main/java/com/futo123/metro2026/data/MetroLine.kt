@@ -5,7 +5,7 @@ import com.futo123.metro2026.R
 data class MetroLine(
     val id: Int,
     val name: String,
-    val color: Int,
+    val icon: Int,
     val stations: List<Station>
 )
 

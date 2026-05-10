@@ -1,5 +1,6 @@
 package com.futo123.metro2026.ui.stations
 
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -91,16 +92,15 @@ class StationsExpandableAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(line: MetroLine, isExpanded: Boolean) {
             binding.lineName.text = line.name
-            val color = ContextCompat.getColor(binding.root.context, line.color)
-            binding.lineColorBar.setBackgroundColor(color)
-            binding.expandIcon.text = if (isExpanded) "▼" else "▶"
+            binding.lineColorBar.setImageResource(line.icon)   // устанавливаем иконку
+            binding.expandIcon.text = if (isExpanded) "▼" else ">"
         }
     }
 
     class StationViewHolder(private val binding: ItemStationBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(station: Station) {
-            binding.stationName.text = station.name
+            binding.stationName.text = Html.fromHtml(station.name, Html.FROM_HTML_MODE_LEGACY)
             binding.stationDesc.text = station.shortDescription
         }
     }
