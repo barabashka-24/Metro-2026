@@ -23,14 +23,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:fontFamily="@font/nunito_bold" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/station_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:fontFamily="@font/nunito_regular"
             android:layout_marginTop="4dp" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -5,23 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.futo123.metro2026.MyApplication
 import com.futo123.metro2026.R
-import com.futo123.metro2026.data.Repository
-import com.futo123.metro2026.data.Station
 import com.futo123.metro2026.databinding.FragmentStationsListBinding
-import com.futo123.metro2026.databinding.ItemStationBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import com.futo123.metro2026.data.MetroLine
 
 class StationsListFragment : Fragment() {
     private var _binding: FragmentStationsListBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentStationsListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -29,13 +27,31 @@ class StationsListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val app = requireActivity().application as MyApplication
+        val repository = app.stationRepository
+
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView.adapter = StationsAdapter(Repository.stations) { station ->
-            // Передаём stationId через Bundle, используя action
-            val bundle = Bundle().apply {
-                putInt("stationId", station.id)
+
+        // Загружаем все станции, группируем по линиям и отображаем
+        lifecycleScope.launch(Dispatchers.IO) {
+            val allStations = repository.getAllStations()
+            // Группировка по lineId (1-6)
+            val lines = listOf(
+                MetroLine(1, "Кировско-Выборгская", R.color.line_red, allStations.filter { it.lineId == 1 }),
+                MetroLine(2, "Московско-Петроградская", R.color.line_blue, allStations.filter { it.lineId == 2 }),
+                MetroLine(3, "Невско-Василеостровская", R.color.line_green, allStations.filter { it.lineId == 3 }),
+                MetroLine(4, "Правобережная", R.color.line_orange, allStations.filter { it.lineId == 4 }),
+                MetroLine(5, "Фрунзенско-Приморская", R.color.line_purple, allStations.filter { it.lineId == 5 }),
+                MetroLine(6, "Красносельско-Калининская", R.color.line_brown, allStations.filter { it.lineId == 6 })
+            )
+
+            // Переключаемся на главный поток для работы с UI
+            launch(Dispatchers.Main) {
+                binding.recyclerView.adapter = StationsExpandableAdapter(lines) { station ->
+                    val bundle = Bundle().apply { putInt("stationId", station.id) }
+                    findNavController().navigate(R.id.action_stations_to_detail, bundle)
+                }
             }
-            findNavController().navigate(R.id.action_stations_to_detail, bundle)
         }
     }
 
@@ -43,27 +59,4 @@ class StationsListFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-}
-
-// Адаптер
-class StationsAdapter(
-    private val stations: List<Station>,
-    private val onItemClick: (Station) -> Unit
-) : RecyclerView.Adapter<StationsAdapter.ViewHolder>() {
-
-    class ViewHolder(val binding: ItemStationBinding) : RecyclerView.ViewHolder(binding.root)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemStationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val station = stations[position]
-        holder.binding.stationName.text = station.name
-        holder.binding.stationDesc.text = station.shortDescription
-        holder.binding.root.setOnClickListener { onItemClick(station) }
-    }
-
-    override fun getItemCount(): Int = stations.size
 }

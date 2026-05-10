@@ -11,36 +11,34 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/station_image"
+            android:id="@+id/stationImage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
             android:contentDescription="Фото станции" />
 
         <TextView
-            android:id="@+id/station_name"
+            android:id="@+id/stationName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
-            android:fontFamily="@font/nunito_bold"
+            android:textStyle="bold"
             android:layout_marginTop="16dp" />
 
         <TextView
-            android:id="@+id/station_history"
+            android:id="@+id/stationHistory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:fontFamily="@font/nunito_regular"
             android:layout_marginTop="8dp" />
 
         <Button
-            android:id="@+id/btn_back"
+            android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="24dp"
-            android:text="Назад"
-            android:fontFamily="@font/nunito_regular" />
+            android:text="Назад" />
 
     </LinearLayout>
 </ScrollView>
