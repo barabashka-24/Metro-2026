@@ -2,5 +2,22 @@
 <resources>
 
     <style name="Theme.Metro2026" parent="Theme.MaterialComponents.Light.NoActionBar" >
+        <item name="colorPrimary">#00703F</item>
+        <item name="colorPrimaryVariant">#002266</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#0099CC</item>
+        <item name="colorSecondaryVariant">#006699</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="android:colorBackground">#F5F5F5</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#212121</item>
+        <item name="colorError">#B00020</item>
+        <item name="colorOnError">#FFFFFF</item>
+        <!-- Настройка шрифта по умолчанию, если нужно -->
+        <item name="android:fontFamily">@font/nunito_regular</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
+
+
 </resources>

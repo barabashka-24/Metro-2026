@@ -7,11 +7,12 @@
     android:orientation="horizontal"
     android:padding="12dp"
     android:gravity="center_vertical"
-    android:background="?attr/selectableItemBackground"
+    android:background="?attr/colorSurface"
     app:cardElevation="4dp"
     android:foreground="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
+    android:elevation="4dp"
     android:layout_marginTop="20dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp">
@@ -33,7 +34,7 @@
         android:textSize="22sp"
         tools:text="Красносельско - Калининская"
         android:fontFamily="@font/nunito_bold"
-        android:textColor="@color/black"
+        android:textColor="?android:attr/textColorPrimary"
         android:layout_marginStart="12dp"
         />
 
@@ -45,5 +46,5 @@
         android:text=">"
         android:fontFamily="@font/nunito_bold"
         android:textSize="30sp"
-        android:textColor="@color/black"/>
+        android:textColor="?android:attr/textColorPrimary"/>
 </LinearLayout>

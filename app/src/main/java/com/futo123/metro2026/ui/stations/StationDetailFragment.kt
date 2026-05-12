@@ -12,6 +12,7 @@ import com.futo123.metro2026.MyApplication
 import com.futo123.metro2026.databinding.FragmentStationDetailBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import android.content.Context
 
 class StationDetailFragment : Fragment() {
 
@@ -48,17 +49,14 @@ class StationDetailFragment : Fragment() {
             // Переключаемся на главный поток для обновления UI
             launch(Dispatchers.Main) {
                 if (station != null) {
-                    // Устанавливаем изображение
                     binding.stationImage.setImageResource(station.imageResId)
-
-                    // Название станции
                     binding.stationName.text = Html.fromHtml(station.name, Html.FROM_HTML_MODE_LEGACY)
+                    binding.stationHistory.text = Html.fromHtml(station.fullHistory, Html.FROM_HTML_MODE_LEGACY)
 
-                    // Описание (поддерживаем HTML, если history содержит теги)
-                    binding.stationHistory.text =
-                        Html.fromHtml(station.fullHistory, Html.FROM_HTML_MODE_LEGACY)
+                    val prefs = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+                    val fontSize = prefs.getFloat("pref_font_size", 16f)
+                    binding.stationHistory.textSize = fontSize
                 } else {
-                    // Если станция не найдена, можно показать ошибку или просто вернуться назад
                     binding.stationName.text = "Станция не найдена"
                     binding.stationHistory.text = ""
                 }

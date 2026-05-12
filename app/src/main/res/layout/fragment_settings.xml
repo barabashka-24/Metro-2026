@@ -1,14 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
 
-    <TextView
-        android:id="@+id/textPlaceholder"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Настройки (xml)"
-        android:fontFamily="@font/nunito_regular"
-        android:textSize="18sp" />
-</FrameLayout>
+        android:padding="24dp"
+        android:layout_margin="15dp">
+
+        <!-- Заголовок «Настройки» -->
+        <TextView
+            android:id="@+id/settingsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/rocknrollone_regular"
+            android:gravity="center"
+            android:letterSpacing="-0.3"
+            android:text="Настройки"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Заголовок раздела «Размер шрифта» -->
+        <TextView
+            android:id="@+id/fontSizeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Размер шрифта"
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
+
+        <!-- Подсказка -->
+        <TextView
+            android:id="@+id/fontSizeHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nunito_regular"
+            android:text="Регулирует размер текста в описаниях станций"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fontSizeTitle" />
+
+        <!-- Пример текста -->
+        <TextView
+            android:id="@+id/sampleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="?attr/colorSurface"
+            android:elevation="4dp"
+            android:fontFamily="@font/nunito_regular"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="Автово - самая красивая станция!"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fontSizeHint" />
+
+        <!-- SeekBar -->
+        <SeekBar
+            android:id="@+id/fontSizeSeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:max="10"
+            android:min="0"
+            android:progress="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sampleText" />
+
+        <!-- Текущий размер -->
+        <TextView
+            android:id="@+id/currentSizeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nunito_regular"
+            android:text="Текущий размер: 16sp"
+            android:textSize="12sp"
+            android:textColor="?android:attr/textColorSecondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fontSizeSeekBar" />
+
+        <!-- Разделитель -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/currentSizeLabel" />
+
+        <!-- Заголовок «Оформление» -->
+        <TextView
+            android:id="@+id/themeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Тема приложения"
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+        <!-- RadioGroup -->
+        <RadioGroup
+            android:id="@+id/themeRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/themeTitle">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/themeLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_regular"
+                android:padding="8dp"
+                android:text="Светлая тема"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/themeDark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_regular"
+                android:padding="8dp"
+                android:text="Тёмная тема"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/themeSystem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_regular"
+                android:padding="8dp"
+                android:text="Как в системе"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp" />
+
+        </RadioGroup>
+
+        <!-- Разделитель -->
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/themeRadioGroup" />
+
+        <!-- Заголовок «Обновить базу данных» -->
+        <TextView
+            android:id="@+id/dataTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Обновить базу данных"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+        <!-- Кнопка «Обновить» -->
+        <Button
+            android:id="@+id/btnResetData"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Обновить"
+            app:backgroundTint="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dataTitle" />
+
+        <!-- Статус -->
+        <TextView
+            android:id="@+id/resetStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nunito_regular"
+            android:text=""
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnResetData" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

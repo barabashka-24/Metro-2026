@@ -25,7 +25,7 @@
         android:gravity="center"
         android:text="О приложении"
         android:fontFamily="@font/nunito_bold"
-        android:textColor="@color/black"
+        android:textColor="?android:attr/textColorPrimary"
 
         android:textSize="20sp"
 
@@ -79,11 +79,11 @@
             />
 
         <ImageView
-            android:id="@+id/btn_about_googleplay"
+            android:id="@+id/btn_about_rustore"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="20dp"
-            android:src="@drawable/about_googleplay"
+            android:src="@drawable/about_rustore"
             android:clickable="true"
             android:focusable="true"
             android:stateListAnimator="@animator/scale_on_touch"

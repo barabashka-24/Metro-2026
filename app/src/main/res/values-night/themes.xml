@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Metro2026" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">#6699CC</item>
+        <item name="colorPrimaryVariant">#336699</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="colorSecondary">#4DB8E8</item>
+        <item name="colorSecondaryVariant">#1A73B5</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="android:colorBackground">#121212</item>
+        <item name="colorSurface">#1E1E1E</item>
+        <item name="colorOnSurface">#E0E0E0</item>
+        <item name="colorError">#CF6679</item>
+        <item name="colorOnError">#000000</item>
+
+        <item name="android:fontFamily">@font/nunito_regular</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+</resources>
