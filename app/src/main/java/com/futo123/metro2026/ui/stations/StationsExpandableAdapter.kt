@@ -29,10 +29,6 @@ class StationsExpandableAdapter(
         items.addAll(lines)
     }
 
-    /**
-     * Раскрыть или свернуть линию.
-     * Анимация обеспечивается точечными уведомлениями адаптера.
-     */
     fun toggleLine(lineId: Int) {
         val lineIndex = items.indexOfFirst { it is MetroLine && it.id == lineId }
         if (lineIndex == -1) return

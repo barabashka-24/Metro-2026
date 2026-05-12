@@ -7,11 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import com.futo123.metro2026.MyApplication
 import com.futo123.metro2026.databinding.FragmentSettingsBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import com.futo123.metro2026.R
 
 class SettingsFragment : Fragment() {

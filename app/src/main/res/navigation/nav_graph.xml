@@ -13,17 +13,17 @@
         <action
             android:id="@+id/action_home_to_menu"
             app:destination="@id/menuFragment"
-            app:enterAnim="@animator/slide_up_enter"
-            app:exitAnim="@animator/slide_down_exit"
-            app:popEnterAnim="@animator/slide_down_pop_enter"
-            app:popExitAnim="@animator/slide_up_pop_exit"/>
+            app:enterAnim="@anim/slide_up_enter"
+            app:exitAnim="@anim/slide_down_exit"
+            app:popEnterAnim="@anim/slide_down_pop_enter"
+            app:popExitAnim="@anim/slide_up_pop_exit"/>
         <action
             android:id="@+id/action_home_to_settings"
             app:destination="@id/settingsFragment"
-            app:enterAnim="@animator/slide_up_enter"
-            app:exitAnim="@animator/slide_down_exit"
-            app:popEnterAnim="@animator/slide_down_pop_enter"
-            app:popExitAnim="@animator/slide_up_pop_exit" />
+            app:enterAnim="@anim/slide_up_enter"
+            app:exitAnim="@anim/slide_down_exit"
+            app:popEnterAnim="@anim/slide_down_pop_enter"
+            app:popExitAnim="@anim/slide_up_pop_exit" />
     </fragment>
 
     <fragment
@@ -34,45 +34,45 @@
         <action
             android:id="@+id/action_menu_to_general"
             app:destination="@id/generalInfoFragment"
-            app:enterAnim="@animator/slide_in_right"
-            app:exitAnim="@animator/slide_out_left"
-            app:popEnterAnim="@animator/slide_in_left"
-            app:popExitAnim="@animator/slide_out_right"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_menu_to_map"
             app:destination="@id/mapFragment"
-            app:enterAnim="@animator/slide_in_right"
-            app:exitAnim="@animator/slide_out_left"
-            app:popEnterAnim="@animator/slide_in_left"
-            app:popExitAnim="@animator/slide_out_right"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_menu_to_trains_list"
             app:destination="@id/trainsListFragment"
-            app:enterAnim="@animator/slide_in_right"
-            app:exitAnim="@animator/slide_out_left"
-            app:popEnterAnim="@animator/slide_in_left"
-            app:popExitAnim="@animator/slide_out_right"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_menu_to_stations_list"
             app:destination="@id/stationsListFragment"
-            app:enterAnim="@animator/slide_in_right"
-            app:exitAnim="@animator/slide_out_left"
-            app:popEnterAnim="@animator/slide_in_left"
-            app:popExitAnim="@animator/slide_out_right"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_menu_to_about"
             app:destination="@id/aboutFragment"
-            app:enterAnim="@animator/slide_up_enter"
-            app:exitAnim="@animator/slide_down_exit"
-            app:popEnterAnim="@animator/slide_down_pop_enter"
-            app:popExitAnim="@animator/slide_up_pop_exit"/>
+            app:enterAnim="@anim/slide_up_enter"
+            app:exitAnim="@anim/slide_down_exit"
+            app:popEnterAnim="@anim/slide_down_pop_enter"
+            app:popExitAnim="@anim/slide_up_pop_exit"/>
         <action
             android:id="@+id/action_menu_to_help"
             app:destination="@id/helpFragment"
-            app:enterAnim="@animator/slide_up_enter"
-            app:exitAnim="@animator/slide_down_exit"
-            app:popEnterAnim="@animator/slide_down_pop_enter"
-            app:popExitAnim="@animator/slide_up_pop_exit"/>
+            app:enterAnim="@anim/slide_up_enter"
+            app:exitAnim="@anim/slide_down_exit"
+            app:popEnterAnim="@anim/slide_down_pop_enter"
+            app:popExitAnim="@anim/slide_up_pop_exit"/>
     </fragment>
 
     <fragment
@@ -82,10 +82,10 @@
         <action
             android:id="@+id/action_stations_to_detail"
             app:destination="@id/stationDetailFragment"
-            app:enterAnim="@animator/scale_fade_enter"
-            app:exitAnim="@animator/scale_fade_exit"
-            app:popEnterAnim="@animator/scale_fade_pop_enter"
-            app:popExitAnim="@animator/scale_fade_pop_exit"/>
+            app:enterAnim="@anim/scale_fade_enter"
+            app:exitAnim="@anim/scale_fade_exit"
+            app:popEnterAnim="@anim/scale_fade_pop_enter"
+            app:popExitAnim="@anim/scale_fade_pop_exit"/>
     </fragment>
 
     <fragment
@@ -104,10 +104,10 @@
         <action
             android:id="@+id/action_trains_to_detail"
             app:destination="@id/trainDetailFragment"
-            app:enterAnim="@animator/scale_fade_enter"
-            app:exitAnim="@animator/scale_fade_exit"
-            app:popEnterAnim="@animator/scale_fade_pop_enter"
-            app:popExitAnim="@animator/scale_fade_pop_exit"/>
+            app:enterAnim="@anim/scale_fade_enter"
+            app:exitAnim="@anim/scale_fade_exit"
+            app:popEnterAnim="@anim/scale_fade_pop_enter"
+            app:popExitAnim="@anim/scale_fade_pop_exit"/>
     </fragment>
 
     <fragment
@@ -131,10 +131,10 @@
         <action
             android:id="@+id/action_map_to_station_detail"
             app:destination="@id/stationDetailFragment"
-            app:enterAnim="@animator/slide_up_enter"
-            app:exitAnim="@animator/slide_down_exit"
-            app:popEnterAnim="@animator/slide_down_pop_enter"
-            app:popExitAnim="@animator/slide_up_pop_exit"/>
+            app:enterAnim="@anim/slide_up_enter"
+            app:exitAnim="@anim/slide_down_exit"
+            app:popEnterAnim="@anim/slide_down_pop_enter"
+            app:popExitAnim="@anim/slide_up_pop_exit"/>
     </fragment>
 
     <fragment

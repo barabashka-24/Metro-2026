@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Metro2026</string>
+
+    <string name="about_title">О приложении</string>
+    <string name="about_tg">Telegram</string>
+    <string name="about_vk">VK</string>
+    <string name="about_mail">Email</string>
+    <string name="about_rustore">RuStore</string>
+    <string name="about_logo">Логотип</string>
+
+
+    <string name="general_info">Общая информация</string>
+    <string name="map_1986">Схема метро 1986 года</string>
+
+
+
 </resources>
