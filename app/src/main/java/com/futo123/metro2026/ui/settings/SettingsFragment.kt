@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.futo123.metro2026.databinding.FragmentSettingsBinding
 import com.futo123.metro2026.R
+import android.widget.SeekBar
 
 class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
@@ -21,6 +22,9 @@ class SettingsFragment : Fragment() {
         const val THEME_LIGHT = 0
         const val THEME_DARK = 1
         const val THEME_SYSTEM = 2
+
+        const val PREF_VOLUME = "pref_volume"
+        const val DEFAULT_VOLUME = 50
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -75,12 +79,27 @@ class SettingsFragment : Fragment() {
             // Перезапуск активности для полного применения
             requireActivity().recreate()
         }
+        val currentVolume = prefs.getInt(PREF_VOLUME, DEFAULT_VOLUME)
+        binding.soundVolumeSeekBar.progress = currentVolume
+        updateVolumeLabel(currentVolume)
 
+        binding.soundVolumeSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                updateVolumeLabel(progress)
+                prefs.edit().putInt(PREF_VOLUME, progress).apply()
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
     }
 
     private fun updateSampleText(size: Float) {
         binding.sampleText.textSize = size
-        binding.currentSizeLabel.text = "Текущий размер: ${size.toInt()}sp"
+        binding.currentSizeLabel.text = getString(R.string.current_font_size, size.toInt())
+    }
+
+    private fun updateVolumeLabel(progress: Int) {
+        binding.currentVolumeLabel.text = getString(R.string.current_volume_level, progress)
     }
 
     override fun onDestroyView() {

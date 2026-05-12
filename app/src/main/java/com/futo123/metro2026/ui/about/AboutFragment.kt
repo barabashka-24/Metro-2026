@@ -7,13 +7,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.futo123.metro2026.databinding.FragmentAboutBinding
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.net.Uri
 import android.widget.Toast
+import com.futo123.metro2026.R
 
 class AboutFragment : Fragment() {
     private var _binding: FragmentAboutBinding? = null
     private val binding get() = _binding!!
+    private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
@@ -26,11 +30,17 @@ class AboutFragment : Fragment() {
             Метро 2026
             
             Справочник по Петербургскому метрополитену
-            Версия: 1.0.1_alpha
+            Версия: 1.0.2_beta
             
             ©futo123   
             
         """.trimIndent()
+
+        mediaPlayer = MediaPlayer.create(requireContext(), R.raw.bronevaya).apply {}
+        val prefs = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val volume = prefs.getInt("pref_volume", 100) / 100f  // 0.0 .. 1.0
+        mediaPlayer?.setVolume(volume, volume)
+        binding.aboutLogo.setOnClickListener {playBridgeSound()}
 
         binding.btnAboutTg.setOnClickListener {
             openUrl("https://t.me/metro2026spb")
@@ -42,7 +52,7 @@ class AboutFragment : Fragment() {
             composeEmail("ponomarev2016t@mail.ru", "Metro2026. Обратная связь.")
         }
         binding.btnAboutRustore.setOnClickListener {
-            openUrl("https://www.rustore.ru")
+            openUrl("https://www.rustore.ru/catalog/app/com.futo123.metro2026")
         }
     }
 
@@ -65,14 +75,31 @@ class AboutFragment : Fragment() {
         }
         try {
             startActivity(intent)
-        } catch (e: ActivityNotFoundException) {
+        } catch (_: ActivityNotFoundException) {
             Toast.makeText(requireContext(), "Почтовый клиент не найден", Toast.LENGTH_SHORT).show()
         }
     }
 
 
-override fun onDestroyView() {
+    private fun playBridgeSound() {
+        mediaPlayer?.let { mp ->
+            if (mp.isPlaying) {
+                mp.seekTo(0)        // Перематываем в начало, если уже играет
+                mp.start()
+            } else {
+                mp.start()          // Начинаем воспроизведение
+            }
+        }
+    }
+
+    override fun onDestroyView() {
         super.onDestroyView()
+        // Останавливаем и освобождаем MediaPlayer, чтобы не утекал
+        mediaPlayer?.apply {
+            if (isPlaying) stop()
+            release()
+        }
+        mediaPlayer = null
         _binding = null
     }
 }

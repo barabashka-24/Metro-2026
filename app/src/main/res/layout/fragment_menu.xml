@@ -1,295 +1,313 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp"
-    android:background="@drawable/menu_background"
-    >
-
-
-    <TextView
-        android:id="@+id/textMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/rocknrollone_regular"
-        android:gravity="center_horizontal"
-        android:letterSpacing="-0.3"
-        android:text="Меню"
-        android:textColor="@color/black"
-        android:textColorHighlight="@color/white"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.06"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/gridLayout1"
+    android:fillViewport="true"
+    android:background="@drawable/menu_background">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:alignmentMode="alignMargins"
-        android:gravity="center_horizontal"
-
-        app:layout_constraintTop_toBottomOf="@+id/textMenu"
-        android:layout_marginTop="80dp"
-        tools:layout_editor_absoluteX="24dp">
-
-        <LinearLayout
-            android:id="@+id/btn_general"
-            style="@style/Widget.MaterialComponents.Button"
-            android:stateListAnimator="@animator/scale_on_touch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/menu_btn_background"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:clickable="true"
-            android:focusable="true"
-            >
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:src="@drawable/menu_metrospb_btn"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@android:color/transparent"
-                android:fontFamily="@font/nunito_regular"
-                android:gravity="center"
-                android:text="Метро СПб"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btn_stations"
-            style="@style/Widget.MaterialComponents.Button"
-            android:stateListAnimator="@animator/scale_on_touch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/menu_btn_background"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="46dp"
-                android:gravity="center"
-                android:src="@drawable/menu_stations_btn" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="37dp"
-                android:background="@android:color/transparent"
-                android:fontFamily="@font/nunito_regular"
-                android:gravity="center"
-
-                android:text="Станции"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-    <ImageView
-        android:id="@+id/menu_bridge"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/menu_bridge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout1" />
-
-    <LinearLayout
-        android:id="@+id/gridLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:alignmentMode="alignMargins"
-        android:gravity="center_horizontal"
-
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout1"
-        android:layout_marginTop="80dp"
-
-        tools:layout_editor_absoluteX="24dp">
-
-        <LinearLayout
-            android:id="@+id/btn_trains"
-            style="@style/Widget.MaterialComponents.Button"
-            android:stateListAnimator="@animator/scale_on_touch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="1dp"
-            android:background="@drawable/menu_btn_background"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:src="@drawable/menu_trains_btn" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@android:color/transparent"
-                android:fontFamily="@font/nunito_regular"
-                android:gravity="center"
-                android:text="Поезда"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btn_map"
-            style="@style/Widget.MaterialComponents.Button"
-            android:stateListAnimator="@animator/scale_on_touch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/menu_btn_background"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:src="@drawable/menu_map_btn" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@android:color/transparent"
-                android:fontFamily="@font/nunito_regular"
-                android:gravity="center"
-
-                android:text="Карта"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout2"
-        app:layout_constraintVertical_bias="0.94">
+        android:padding="24dp"
+        >
+
+
+        <TextView
+            android:id="@+id/textMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rocknrollone_regular"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.3"
+            android:text="Меню"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/white"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.06"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/btn_help"
-            style="?android:attr/buttonBarButtonStyle"
-            android:stateListAnimator="@animator/scale_on_touch"
-            android:layout_width="150dp"
+            android:id="@+id/gridLayout1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            >
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp"
+            android:layout_weight="1"
+            android:alignmentMode="alignMargins"
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/menu_help_btn"/>
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMenu">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/transparent"
-                android:fontFamily="@font/nunito_bold"
-                android:text="Справка"
-                android:textColor="@color/white" />
+            <LinearLayout
+                android:id="@+id/btn_general"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="175dp"
+                android:layout_height="226dp"
+                android:layout_gravity="center"
+                android:background="@drawable/menu_btn_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_horizontal"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="vertical"
+                android:stateListAnimator="@animator/scale_on_touch">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="3dp"
+                    android:gravity="center"
+                    android:src="@drawable/menu_metrospb_btn" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="3dp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/nunito_regular"
+                    android:gravity="center"
+                    android:text="Метро СПб"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_stations"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="175dp"
+                android:layout_height="226dp"
+                android:layout_gravity="center"
+                android:background="@drawable/menu_btn_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_horizontal"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="vertical"
+                android:stateListAnimator="@animator/scale_on_touch">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="67dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginLeft="3dp"
+                    android:gravity="center"
+                    android:src="@drawable/menu_stations_btn" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="33dp"
+                    android:layout_marginLeft="3dp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/nunito_regular"
+                    android:gravity="center"
+
+                    android:text="Станции"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/menu_bridge"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/menu_bridge"
+            app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout1" />
+
+
         <LinearLayout
-            android:id="@+id/btn_about"
-            style="?android:attr/buttonBarButtonStyle"
-            android:stateListAnimator="@animator/scale_on_touch"
-            android:layout_width="150dp"
+            android:id="@+id/gridLayout2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            >
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="84dp"
+            android:layout_weight="1"
+            android:alignmentMode="alignMargins"
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/menu_about_btn"/>
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/transparent"
-                android:fontFamily="@font/nunito_bold"
-                android:text="О приложении"
-                android:autoSizeMaxTextSize="20dp"
-                android:textColor="@color/white" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout1">
+
+            <LinearLayout
+                android:id="@+id/btn_trains"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="175dp"
+                android:layout_height="226dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/menu_btn_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:stateListAnimator="@animator/scale_on_touch">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="3dp"
+                    android:gravity="center"
+                    android:src="@drawable/menu_trains_btn" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="3dp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/nunito_regular"
+                    android:gravity="center"
+                    android:text="Поезда"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_map"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="175dp"
+                android:layout_height="226dp"
+                android:layout_gravity="center"
+                android:background="@drawable/menu_btn_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_horizontal"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="vertical"
+                android:stateListAnimator="@animator/scale_on_touch">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="3dp"
+                    android:src="@drawable/menu_map_btn" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="3dp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/nunito_regular"
+                    android:gravity="center"
+
+                    android:text="Карта"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout2"
+            app:layout_constraintVertical_bias="0.94">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/btn_help"
+                style="?android:attr/buttonBarButtonStyle"
+                android:stateListAnimator="@animator/scale_on_touch"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                >
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/menu_help_btn"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/transparent"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Справка"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/btn_about"
+                style="?android:attr/buttonBarButtonStyle"
+                android:stateListAnimator="@animator/scale_on_touch"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                >
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/menu_about_btn"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/transparent"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="О приложении"
+                    android:autoSizeMaxTextSize="20dp"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

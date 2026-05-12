@@ -8,26 +8,29 @@
     android:background="?android:attr/colorBackground">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/about_line7"
-        android:contentDescription="@string/about_logo"
-        android:stateListAnimator="@animator/scale_on_touch"
+        android:id="@+id/about_logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:clickable="true"
+        android:contentDescription="@string/about_logo"
+        android:src="@drawable/about_line7"
+        android:stateListAnimator="@animator/scale_on_touch"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="307:205"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.242" />
+        app:layout_constraintVertical_bias="0.242"
+        app:layout_constraintWidth_percent="0.7" />
 
     <TextView
         android:id="@+id/textAbout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/nunito_bold"
         android:gravity="center"
         android:text="О приложении"
-        android:fontFamily="@font/nunito_bold"
         android:textColor="?android:attr/textColorPrimary"
 
         android:textSize="20sp"
@@ -35,8 +38,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.686" />
+        app:layout_constraintTop_toBottomOf="@+id/about_logo"
+        app:layout_constraintVertical_bias="0.4" />
 
     <LinearLayout
         style="?android:attr/buttonBarButtonStyle"
@@ -45,56 +48,52 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.961">
+        app:layout_constraintTop_toBottomOf="@+id/textAbout"
+        app:layout_constraintVertical_bias="0.8">
 
         <ImageView
             android:id="@+id/btn_about_tg"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="20dp"
-            android:src="@drawable/about_tg"
-            android:contentDescription="@string/about_tg"
             android:clickable="true"
+            android:contentDescription="@string/about_tg"
             android:focusable="true"
-            android:stateListAnimator="@animator/scale_on_touch"
-            />
+            android:src="@drawable/about_tg"
+            android:stateListAnimator="@animator/scale_on_touch" />
 
         <ImageView
             android:id="@+id/btn_about_vk"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="20dp"
-            android:src="@drawable/about_vk"
-            android:contentDescription="@string/about_vk"
             android:clickable="true"
+            android:contentDescription="@string/about_vk"
             android:focusable="true"
-            android:stateListAnimator="@animator/scale_on_touch"
-            />
+            android:src="@drawable/about_vk"
+            android:stateListAnimator="@animator/scale_on_touch" />
 
         <ImageView
             android:id="@+id/btn_about_mail"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="20dp"
-            android:src="@drawable/about_mail"
-            android:contentDescription="@string/about_mail"
             android:clickable="true"
+            android:contentDescription="@string/about_mail"
             android:focusable="true"
-            android:stateListAnimator="@animator/scale_on_touch"
-            />
+            android:src="@drawable/about_mail"
+            android:stateListAnimator="@animator/scale_on_touch" />
 
         <ImageView
             android:id="@+id/btn_about_rustore"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="20dp"
-            android:src="@drawable/about_rustore"
-            android:contentDescription="@string/about_rustore"
             android:clickable="true"
+            android:contentDescription="@string/about_rustore"
             android:focusable="true"
-            android:stateListAnimator="@animator/scale_on_touch"
-            />
+            android:src="@drawable/about_rustore"
+            android:stateListAnimator="@animator/scale_on_touch" />
 
     </LinearLayout>
 

@@ -12,6 +12,7 @@
     <string name="general_info">Общая информация</string>
     <string name="map_1986">Схема метро 1986 года</string>
 
-
+    <string name="current_font_size">Текущий размер: %dsp</string>
+    <string name="current_volume_level">Текущий уровень: %d%%</string>
 
 </resources>

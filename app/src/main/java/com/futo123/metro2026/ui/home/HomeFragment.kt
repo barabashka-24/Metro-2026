@@ -8,10 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.futo123.metro2026.databinding.FragmentHomeBinding
 import com.futo123.metro2026.R
+import android.media.MediaPlayer
+import android.content.Context
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,10 +32,33 @@ class HomeFragment : Fragment() {
         binding.btnSettings.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_settings)
         }
+        mediaPlayer = MediaPlayer.create(requireContext(), R.raw.home_metro_spb_logo).apply {}
+        val prefs = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val volume = prefs.getInt("pref_volume", 100) / 100f  // 0.0 .. 1.0
+
+        mediaPlayer?.setVolume(volume, volume)
+        binding.homeMetroSpbLogo.setOnClickListener {playBridgeSound()}
+    }
+
+    private fun playBridgeSound() {
+        mediaPlayer?.let { mp ->
+            if (mp.isPlaying) {
+                mp.seekTo(0)        // Перематываем в начало, если уже играет
+                mp.start()
+            } else {
+                mp.start()          // Начинаем воспроизведение
+            }
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        // Останавливаем и освобождаем MediaPlayer, чтобы не утекал
+        mediaPlayer?.apply {
+            if (isPlaying) stop()
+            release()
+        }
+        mediaPlayer = null
         _binding = null
     }
 }

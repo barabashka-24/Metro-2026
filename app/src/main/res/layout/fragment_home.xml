@@ -9,8 +9,11 @@
 
 
     <ImageView
-        android:layout_width="348dp"
-        android:layout_height="348dp"
+        android:id="@+id/home_metro_spb_logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.7"
+        app:layout_constraintDimensionRatio="1:1"
         android:contentDescription="Эмблема метро"
         android:src="@drawable/home_metro_spb_logo"
         android:stateListAnimator="@animator/scale_on_touch"
@@ -23,8 +26,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="264dp"
-        android:layout_height="185dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintDimensionRatio="H,264:185"
         android:contentDescription="Краткое описание"
         android:src="@drawable/home_short_main_text"
         app:layout_constraintBottom_toBottomOf="parent"
