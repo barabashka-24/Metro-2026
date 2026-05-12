@@ -80,19 +80,6 @@ class SettingsFragment : Fragment() {
             requireActivity().recreate()
         }
 
-        // --- Кнопка сброса данных (твой существующий код) ---
-        binding.btnResetData.setOnClickListener {
-            val app = requireActivity().application as MyApplication
-            val repository = app.stationRepository
-            lifecycleScope.launch(Dispatchers.IO) {
-                // Принудительно обновляем, игнорируя версию JSON
-                prefs.edit().putInt("stations_version", 0).apply()
-                repository.updateStationsIfNeeded(requireContext())
-                launch(Dispatchers.Main) {
-                    binding.resetStatus.text = "Данные обновлены!"
-                }
-            }
-        }
     }
 
     private fun updateSampleText(size: Float) {

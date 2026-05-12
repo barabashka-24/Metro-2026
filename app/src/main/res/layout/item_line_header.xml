@@ -10,6 +10,7 @@
     android:background="?attr/colorSurface"
     app:cardElevation="4dp"
     android:foreground="?attr/selectableItemBackground"
+    android:stateListAnimator="@animator/scale_on_touch"
     android:clickable="true"
     android:focusable="true"
     android:elevation="4dp"
@@ -22,7 +23,6 @@
         android:layout_width="75dp"
         android:layout_height="50dp"
         android:src="@drawable/stations_line_1_icon"
-        android:clickable="true"
         />
 
     <TextView

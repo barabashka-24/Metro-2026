@@ -175,44 +175,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/themeRadioGroup" />
 
-        <!-- Заголовок «Обновить базу данных» -->
-        <TextView
-            android:id="@+id/dataTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/nunito_bold"
-            android:text="Обновить базу данных"
-            android:textColor="?android:attr/textColorPrimary"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider2" />
-
-        <!-- Кнопка «Обновить» -->
-        <Button
-            android:id="@+id/btnResetData"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/nunito_bold"
-            android:text="Обновить"
-            app:backgroundTint="?attr/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dataTitle" />
-
-        <!-- Статус -->
-        <TextView
-            android:id="@+id/resetStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/nunito_regular"
-            android:text=""
-            android:textColor="?android:attr/textColorSecondary"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnResetData" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

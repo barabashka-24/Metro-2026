@@ -26,14 +26,14 @@ class AboutFragment : Fragment() {
             Метро 2026
             
             Справочник по Петербургскому метрополитену
-            Версия: 1.0.0_alpha
+            Версия: 1.0.1_alpha
             
             ©futo123   
             
         """.trimIndent()
 
         binding.btnAboutTg.setOnClickListener {
-            openUrl("https://https://t.me/metro2026spb")
+            openUrl("https://t.me/metro2026spb")
         }
         binding.btnAboutVk.setOnClickListener {
             openUrl("https://vk.com/metro2026spb")

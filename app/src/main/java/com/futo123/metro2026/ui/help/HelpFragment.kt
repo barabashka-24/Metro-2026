@@ -57,8 +57,9 @@ class HelpFragment : Fragment() {
             <h3>ℹ️ Источники</h3>
             <p>Информация взята с официального сайта Петербургского метрополитена:<br>
             <a href="http://www.metro.spb.ru">www.metro.spb.ru</a></p>
+            <p>Иконки:<br>
+            <a href="https://icons8.com/">icons8.com</a></p>
             
-            <p><i>Приложение разработано futo123. Версия 0.0.1_beta</i></p>
         """.trimIndent()
 
         val spanned: Spanned = Html.fromHtml(htmlText, Html.FROM_HTML_MODE_LEGACY)

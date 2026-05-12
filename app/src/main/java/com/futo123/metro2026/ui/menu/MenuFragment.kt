@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.futo123.metro2026.databinding.FragmentMenuBinding
 import com.futo123.metro2026.R
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.OvershootInterpolator
 
 class MenuFragment : Fragment() {
     private var _binding: FragmentMenuBinding? = null
@@ -38,7 +40,27 @@ class MenuFragment : Fragment() {
         binding.btnHelp.setOnClickListener {
             findNavController().navigate(R.id.action_menu_to_help)
         }
+        binding.menuBridge.setOnClickListener { bridgeView ->
+            bridgeView.animate().cancel()
+            bridgeView.rotation = 0f
+            bridgeView.translationY = 0f
+            bridgeView.animate()
+                .rotationBy(360f)
+                .translationYBy(-80f)          // высота прыжка
+                .setDuration(600)
+                .setInterpolator(DecelerateInterpolator())
+                .withEndAction {
+                    bridgeView.animate()
+                        .translationY(0f)       // возврат с упругостью
+                        .setDuration(400)
+                        .setInterpolator(OvershootInterpolator(2f))
+                        .start()
+                }
+                .start()
+        }
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

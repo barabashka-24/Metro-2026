@@ -2,13 +2,11 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
         <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -20,22 +18,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
                     android:fontFamily="@font/nunito_bold"
+                    android:gravity="center"
                     android:text="Ленинградский ордена Ленина метрополитен имени В. И. Ленина"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="24sp"
-
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="26dp" />
+                    app:layout_constraintVertical_bias="0.03"
+                    tools:layout_editor_absoluteX="27dp" />
 
                 <TextView
                     android:id="@+id/textInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="40dp"
                     android:fontFamily="@font/nunito_regular"
                     android:text="Общая информация"
                     android:textColor="?android:attr/textColorSecondary"

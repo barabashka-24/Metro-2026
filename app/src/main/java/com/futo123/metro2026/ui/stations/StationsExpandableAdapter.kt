@@ -2,9 +2,7 @@ package com.futo123.metro2026.ui.stations
 
 import android.text.Html
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.futo123.metro2026.data.MetroLine
 import com.futo123.metro2026.data.Station
@@ -16,7 +14,9 @@ class StationsExpandableAdapter(
     private val onStationClick: (Station) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    // Плоский список: изначально только заголовки линий
     private val items = mutableListOf<Any>()
+    // ID раскрытых линий
     private val expandedLines = mutableSetOf<Int>()
 
     companion object {
@@ -25,27 +25,39 @@ class StationsExpandableAdapter(
     }
 
     init {
-        rebuildItems()
+        // Строим начальный список – только заголовки
+        items.addAll(lines)
     }
 
-    private fun rebuildItems() {
-        items.clear()
-        for (line in lines) {
-            items.add(line)
-            if (line.id in expandedLines) {
-                items.addAll(line.stations)
-            }
-        }
-        notifyDataSetChanged()
-    }
-
+    /**
+     * Раскрыть или свернуть линию.
+     * Анимация обеспечивается точечными уведомлениями адаптера.
+     */
     fun toggleLine(lineId: Int) {
+        val lineIndex = items.indexOfFirst { it is MetroLine && it.id == lineId }
+        if (lineIndex == -1) return
+
+        val line = items[lineIndex] as MetroLine
         if (expandedLines.contains(lineId)) {
+            // СВОРАЧИВАЕМ: удаляем станции из списка
+            val stationCount = line.stations.size
+            items.removeAll(line.stations)
             expandedLines.remove(lineId)
+
+            // Уведомляем об удалении элементов (станций)
+            notifyItemRangeRemoved(lineIndex + 1, stationCount)
+            // Обновляем заголовок (стрелочка)
+            notifyItemChanged(lineIndex)
         } else {
+            // РАСКРЫВАЕМ: добавляем станции сразу после заголовка
+            items.addAll(lineIndex + 1, line.stations)
             expandedLines.add(lineId)
+
+            // Уведомляем о добавлении элементов
+            notifyItemRangeInserted(lineIndex + 1, line.stations.size)
+            // Обновляем заголовок
+            notifyItemChanged(lineIndex)
         }
-        rebuildItems()
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -59,11 +71,15 @@ class StationsExpandableAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             TYPE_LINE -> {
-                val binding = ItemLineHeaderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                val binding = ItemLineHeaderBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                )
                 LineViewHolder(binding)
             }
             TYPE_STATION -> {
-                val binding = ItemStationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                val binding = ItemStationBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                )
                 StationViewHolder(binding)
             }
             else -> throw IllegalArgumentException()
@@ -76,6 +92,7 @@ class StationsExpandableAdapter(
                 val lineHolder = holder as LineViewHolder
                 val isExpanded = expandedLines.contains(item.id)
                 lineHolder.bind(item, isExpanded)
+                // Обработчик клика теперь на уровне элемента
                 lineHolder.itemView.setOnClickListener { toggleLine(item.id) }
             }
             is Station -> {
@@ -92,7 +109,7 @@ class StationsExpandableAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(line: MetroLine, isExpanded: Boolean) {
             binding.lineName.text = line.name
-            binding.lineColorBar.setImageResource(line.icon)   // устанавливаем иконку
+            binding.lineColorBar.setImageResource(line.icon)
             binding.expandIcon.text = if (isExpanded) "▼" else ">"
         }
     }
