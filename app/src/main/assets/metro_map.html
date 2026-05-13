@@ -4,142 +4,190 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             margin: 0;
-            background: #ffffff;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center; /* по горизонтали */
+            align-items: center;     /* по вертикали */
+
+            background: #fefefe;
+            touch-action: manipulation;
         }
-        img {
-            width: 100%;
+
+        #map-container {
+            position: relative;
+            display: inline-block;
+            line-height: 0;
+        }
+        #map-image {
+            max-width: 100%;  /* оставляем, чтобы не ломать пропорции */
             height: auto;
             display: block;
         }
-    </style>
-    <script>
-        function stationClick(name) {
-            if (typeof Android !== 'undefined') {
-                Android.showStation(name);
-            }
+        .station-hit {
+            position: absolute;
+            background: transparent;
+            cursor: pointer;
         }
-    </script>
+    </style>
 </head>
 <body>
 
-<div id="map">
-    <!-- Основное изображение карты -->
-    <img src="file:///android_asset/map_site_2025_12_rus.png"
-         alt="Интерактивная карта метрополитена Санкт-Петербурга"
-         usemap="#stations">
-
-    <!-- Кликабельные зоны -->
-    <map name="stations">
-        <!-- Кировско-Выборгская линия -->
-        <area shape="rect" coords="102,921,178,947" onclick="stationClick('Проспект Ветеранов')">
-        <area shape="rect" coords="98,875,178,902" onclick="stationClick('Ленинский проспект')">
-        <area shape="rect" coords="118,845,178,865" onclick="stationClick('Автово')">
-        <area shape="rect" coords="156,808,169,835" onclick="stationClick('Кировский завод')">
-        <area shape="rect" coords="95,781,154,807" onclick="stationClick('Кировский завод')"> <!-- вторая область -->
-        <area shape="rect" coords="167,764,220,800" onclick="stationClick('Нарвская')">
-        <area shape="rect" coords="237,727,303,762" onclick="stationClick('Балтийская')">
-        <area shape="rect" coords="414,675,429,705" onclick="stationClick('Технологический институт 1')">
-        <area shape="rect" coords="260,662,412,674" onclick="stationClick('Технологический институт 1')">
-        <area shape="rect" coords="491,611,560,624" onclick="stationClick('Пушкинская')">
-        <area shape="rect" coords="492,638,508,668" onclick="stationClick('Пушкинская')">
-        <area shape="rect" coords="522,539,603,551" onclick="stationClick('Владимирская')">
-        <area shape="rect" coords="600,552,613,579" onclick="stationClick('Владимирская')">
-        <area shape="rect" coords="628,472,735,483" onclick="stationClick('Площадь Восстания')">
-        <area shape="rect" coords="614,480,627,503" onclick="stationClick('Площадь Восстания')">
-        <area shape="rect" coords="604,427,707,447" onclick="stationClick('Чернышевская')">
-        <area shape="rect" coords="604,368,717,388" onclick="stationClick('Площадь Ленина')">
-        <area shape="rect" coords="604,322,693,342" onclick="stationClick('Выборгская')">
-        <area shape="rect" coords="603,274,665,294" onclick="stationClick('Лесная')">
-        <area shape="rect" coords="603,191,731,211" onclick="stationClick('Площадь Мужества')">
-        <area shape="rect" coords="603,152,721,172" onclick="stationClick('Политехническая')">
-        <area shape="rect" coords="603,115,711,135" onclick="stationClick('Академическая')">
-        <area shape="rect" coords="603,67,751,87" onclick="stationClick('Гражданский проспект')">
-        <area shape="rect" coords="604,18,685,38" onclick="stationClick('Девяткино')">
-
-        <!-- Московско-Петроградская линия -->
-        <area shape="rect" coords="420,18,483,38" onclick="stationClick('Парнас')">
-        <area shape="rect" coords="420,53,513,78" onclick="stationClick('Проспект Просвещения')">
-        <area shape="rect" coords="420,97,480,117" onclick="stationClick('Озерки')">
-        <!-- <area shape="rect" coords="420,142,495,162" onclick="stationClick('Удельная')">  закомментировано в исходнике -->
-        <area shape="rect" coords="420,183,507,203" onclick="stationClick('Пионерская')">
-        <area shape="rect" coords="420,225,514,245" onclick="stationClick('Чёрная речка')">
-        <area shape="rect" coords="420,326,524,346" onclick="stationClick('Петроградская')">
-        <area shape="rect" coords="420,395,512,415" onclick="stationClick('Горьковская')">
-        <area shape="rect" coords="445,460,497,484" onclick="stationClick('Невский проспект')">
-        <area shape="rect" coords="416,478,429,506" onclick="stationClick('Невский проспект')">
-        <area shape="rect" coords="332,579,421,591" onclick="stationClick('Сенная площадь')">
-        <area shape="rect" coords="419,567,433,578" onclick="stationClick('Сенная площадь')">
-        <area shape="rect" coords="260,675,412,689" onclick="stationClick('Технологический институт 2')">
-        <area shape="rect" coords="430,675,445,705" onclick="stationClick('Технологический институт 2')">
-        <area shape="rect" coords="346,745,440,765" onclick="stationClick('Фрунзенская')"> <!-- в HTML закомментировано, но оставим -->
-        <area shape="rect" coords="352,784,440,809" onclick="stationClick('Московские ворота')">
-        <area shape="rect" coords="346,824,440,844" onclick="stationClick('Электросила')">
-        <area shape="rect" coords="375,868,440,893" onclick="stationClick('Парк Победы')"> <!-- закомментировано в исходнике, но здесь оставим -->
-        <area shape="rect" coords="352,911,440,931" onclick="stationClick('Московская')">
-        <area shape="rect" coords="366,940,440,960" onclick="stationClick('Звёздная')">
-        <area shape="rect" coords="371,970,440,990" onclick="stationClick('Купчино')">
-
-        <!-- Невско-Василеостровская линия -->
-        <area shape="rect" coords="100,226,167,246" onclick="stationClick('Беговая')">
-        <area shape="rect" coords="100,297,155,317" onclick="stationClick('Зенит')">
-        <area shape="rect" coords="100,402,190,422" onclick="stationClick('Приморская')">
-        <area shape="rect" coords="195,481,305,514" onclick="stationClick('Василеостровская')">
-        <area shape="rect" coords="445,501,528,513" onclick="stationClick('Гостиный двор')">
-        <area shape="rect" coords="430,478,444,506" onclick="stationClick('Гостиный двор')">
-        <area shape="rect" coords="627,502,700,513" onclick="stationClick('Маяковская')">
-        <area shape="rect" coords="599,480,613,503" onclick="stationClick('Маяковская')">
-        <area shape="rect" coords="785,526,960,538" onclick="stationClick('Площадь Александра Невского 1')">
-        <area shape="rect" coords="754,549,769,580" onclick="stationClick('Площадь Александра Невского 1')">
-        <area shape="rect" coords="760,832,857,852" onclick="stationClick('Елизаровская')">
-        <area shape="rect" coords="760,888,867,908" onclick="stationClick('Ломоносовская')">
-        <area shape="rect" coords="760,943,857,963" onclick="stationClick('Пролетарская')">
-        <area shape="rect" coords="760,999,828,1019" onclick="stationClick('Обухово')">
-        <area shape="rect" coords="760,1057,836,1077" onclick="stationClick('Рыбацкое')">
-
-        <!-- Правобережная линия -->
-        <area shape="rect" coords="182,520,285,553" onclick="stationClick('Горный институт')">
-        <area shape="rect" coords="457,570,509,582" onclick="stationClick('Спасская')">
-        <area shape="rect" coords="437,556,448,575" onclick="stationClick('Спасская')">
-        <area shape="rect" coords="627,540,695,552" onclick="stationClick('Достоевская')">
-        <area shape="rect" coords="614,552,628,579" onclick="stationClick('Достоевская')">
-        <area shape="rect" coords="683,554,747,604" onclick="stationClick('Лиговский проспект')">
-        <area shape="rect" coords="785,539,960,551" onclick="stationClick('Площадь Александра Невского 2')">
-        <area shape="rect" coords="770,549,784,580" onclick="stationClick('Площадь Александра Невского 2')">
-        <area shape="rect" coords="872,615,986,635" onclick="stationClick('Новочеркасская')">
-        <area shape="rect" coords="872,677,960,697" onclick="stationClick('Ладожская')">
-        <area shape="rect" coords="872,762,970,788" onclick="stationClick('Проспект Большевиков')">
-        <area shape="rect" coords="872,831,950,856" onclick="stationClick('Улица Дыбенко')">
-
-        <!-- Фрунзенско-Приморская линия -->
-        <area shape="rect" coords="230,123,337,149" onclick="stationClick('Комендантский проспект')">
-        <area shape="rect" coords="230,184,337,204" onclick="stationClick('Старая деревня')">
-        <area shape="rect" coords="230,300,326,326" onclick="stationClick('Крестовский остров')">
-        <area shape="rect" coords="260,366,347,386" onclick="stationClick('Чкаловская')">
-        <area shape="rect" coords="295,405,383,425" onclick="stationClick('Спортивная')">
-        <area shape="rect" coords="279,433,299,453" onclick="stationClick('Спортивная')">
-        <area shape="rect" coords="379,503,399,523" onclick="stationClick('Адмиралтейская')">
-        <area shape="rect" coords="300,523,391,538" onclick="stationClick('Адмиралтейская')">
-        <area shape="rect" coords="445,539,496,551" onclick="stationClick('Садовая')">
-        <area shape="rect" coords="419,552,433,564" onclick="stationClick('Садовая')">
-        <area shape="rect" coords="528,650,620,663" onclick="stationClick('Звенигородская')">
-        <area shape="rect" coords="509,638,524,668" onclick="stationClick('Звенигородская')">
-        <area shape="rect" coords="557,711,672,730" onclick="stationClick('Обводный канал')">
-        <area shape="rect" coords="596,756,690,775" onclick="stationClick('Волковская')">
-        <area shape="rect" coords="617,832,715,852" onclick="stationClick('Бухарестская')">
-        <area shape="rect" coords="617,889,730,909" onclick="stationClick('Международная')">
-        <area shape="rect" coords="616,944,727,964" onclick="stationClick('Проспект Славы')">
-        <area shape="rect" coords="617,998,702,1018" onclick="stationClick('Дунайская')">
-        <area shape="rect" coords="617,1056,687,1076" onclick="stationClick('Шушары')">
-
-        <!-- Красносельско-Калининская линия -->
-        <area shape="rect" coords="91,843,110,862" onclick="stationClick('Юго-Западная')">
-        <area shape="rect" coords="33,828,110,843" onclick="stationClick('Юго-Западная')">
-        <area shape="rect" coords="170,808,183,835" onclick="stationClick('Путиловская')">
-        <area shape="rect" coords="81,809,153,821" onclick="stationClick('Путиловская')">
-    </map>
+<div id="map-container">
+    <img id="map-image" src="file:///android_asset/map_site_2025_12_rus.png" alt="Карта метро">
 </div>
 
+<script>
+    const stations = [
+        // === Линия 1 (Кировско-Выборгская) ===
+        { id: 1,   name: "Девяткино",                    x1: 60.4, y1: 1.6,  x2: 68.5, y2: 3.3 },
+        { id: 2,   name: "Гражданский проспект",        x1: 60.3, y1: 5.8,  x2: 75.1, y2: 7.5 },
+        { id: 3,   name: "Академическая",               x1: 60.3, y1: 9.9,  x2: 71.1, y2: 11.6 },
+        { id: 4,   name: "Политехническая",             x1: 60.3, y1: 13.1, x2: 72.1, y2: 14.8 },
+        { id: 5,   name: "Площадь Мужества",            x1: 60.3, y1: 16.4, x2: 73.1, y2: 18.2 },
+        { id: 6,   name: "Лесная",                      x1: 60.3, y1: 23.6, x2: 66.5, y2: 25.3 },
+        { id: 7,   name: "Выборгская",                  x1: 60.4, y1: 27.7, x2: 69.3, y2: 29.5 },
+        { id: 8,   name: "Площадь Ленина",             x1: 60.4, y1: 31.7, x2: 71.7, y2: 33.4 },
+        { id: 9,   name: "Чернышевская",                x1: 60.4, y1: 36.7, x2: 70.7, y2: 38.5 },
+        { id: 10,  name: "Площадь Восстания",           x1: 62.8, y1: 40.6, x2: 73.5, y2: 41.6 },
+        { id: 11,  name: "Владимирская",                x1: 52.2, y1: 46.4, x2: 60.3, y2: 47.4 },
+        { id: 12,  name: "Пушкинская",                  x1: 49.1, y1: 52.6, x2: 56.0, y2: 53.7 },
+        { id: 13,  name: "Технологический институт — 1", x1: 26.0, y1: 57.0, x2: 41.2, y2: 59.4 },
+        { id: 14,  name: "Балтийская",                  x1: 23.7, y1: 62.6, x2: 30.3, y2: 65.6 },
+        { id: 15,  name: "Нарвская",                    x1: 16.7, y1: 65.8, x2: 22.0, y2: 68.9 },
+        { id: 16,  name: "Кировский завод",            x1: 9.5,  y1: 67.2, x2: 15.4, y2: 69.5 },
+        { id: 17,  name: "Автово",                     x1: 11.8, y1: 72.8, x2: 17.8, y2: 74.5 },
+        { id: 18,  name: "Ленинский проспект",         x1: 9.8,  y1: 75.4, x2: 17.8, y2: 77.7 },
+        { id: 19,  name: "Проспект Ветеранов",         x1: 10.2, y1: 79.3, x2: 17.8, y2: 81.6 },
+
+        // === Линия 2 (Московско-Петроградская) ===
+        { id: 30,  name: "Парнас",                     x1: 42.0, y1: 1.6,  x2: 48.3, y2: 3.3 },
+        { id: 31,  name: "Проспект Просвещения",       x1: 42.0, y1: 4.6,  x2: 51.3, y2: 6.7 },
+        { id: 32,  name: "Озерки",                     x1: 42.0, y1: 8.3,  x2: 48.0, y2: 10.1 },
+        { id: 33,  name: "Удельная",                   x1: 42.0, y1: 15.8, x2: 50.7, y2: 17.5 },
+        { id: 34,  name: "Пионерская",                 x1: 42.0, y1: 19.3, x2: 51.4, y2: 21.1 },
+        { id: 35,  name: "Чёрная речка",               x1: 42.0, y1: 27.9, x2: 52.4, y2: 29.7 },
+        { id: 36,  name: "Петроградская",              x1: 42.0, y1: 34.0, x2: 51.2, y2: 35.7 },
+        { id: 37,  name: "Горьковская",                x1: 42.0, y1: 39.5, x2: 51.2, y2: 41.5 },
+        { id: 38,  name: "Невский проспект",           x1: 44.5, y1: 46.0, x2: 49.7, y2: 48.4 },
+        { id: 39,  name: "Сенная площадь",             x1: 33.2, y1: 49.8, x2: 42.1, y2: 50.9 },
+        { id: 40,  name: "Технологический институт — 2", x1: 26.0, y1: 58.1, x2: 41.2, y2: 59.3 },
+        { id: 41,  name: "Фрунзенская",                x1: 34.6, y1: 64.1, x2: 44.0, y2: 65.9 },
+        { id: 42,  name: "Московские ворота",          x1: 35.2, y1: 67.4, x2: 44.0, y2: 69.6 },
+        { id: 43,  name: "Электросила",                x1: 34.6, y1: 70.9, x2: 44.0, y2: 72.7 },
+        { id: 44,  name: "Парк Победы",                x1: 37.5, y1: 74.7, x2: 44.0, y2: 76.9 },
+        { id: 45,  name: "Московская",                 x1: 35.2, y1: 78.4, x2: 44.0, y2: 80.1 },
+        { id: 46,  name: "Звёздная",                   x1: 36.6, y1: 80.9, x2: 44.0, y2: 82.6 },
+        { id: 47,  name: "Купчино",                    x1: 37.1, y1: 83.4, x2: 44.0, y2: 85.2 },
+
+        // === Линия 3 (Невско-Василеостровская) ===
+        { id: 60,  name: "Беговая",                    x1: 10.0, y1: 19.4, x2: 16.7, y2: 21.2 },
+        { id: 61,  name: "Зенит",                      x1: 10.0, y1: 25.5, x2: 15.5, y2: 27.3 },
+        { id: 62,  name: "Приморская",                 x1: 10.0, y1: 34.6, x2: 19.0, y2: 36.3 },
+        { id: 63,  name: "Василеостровская",           x1: 19.5, y1: 41.4, x2: 30.5, y2: 44.3 },
+        { id: 64,  name: "Гостиный двор",              x1: 44.5, y1: 43.1, x2: 52.8, y2: 44.2 },
+        { id: 65,  name: "Маяковская",                 x1: 62.7, y1: 43.2, x2: 70.0, y2: 44.2 },
+        { id: 66,  name: "Площадь Александра Невского — 1", x1: 78.5, y1: 45.3, x2: 96.0, y2: 46.3 },
+        { id: 67,  name: "Елизаровская",               x1: 76.0, y1: 71.6, x2: 85.7, y2: 73.4 },
+        { id: 68,  name: "Ломоносовская",              x1: 76.0, y1: 76.5, x2: 86.7, y2: 78.2 },
+        { id: 69,  name: "Пролетарская",               x1: 76.0, y1: 81.2, x2: 85.7, y2: 82.9 },
+        { id: 70,  name: "Обухово",                    x1: 76.0, y1: 86.0, x2: 82.8, y2: 87.7 },
+        { id: 71,  name: "Рыбацкое",                   x1: 76.0, y1: 91.0, x2: 83.6, y2: 92.8 },
+
+        // === Линия 4 (Правобережная) ===
+        { id: 80,  name: "Горный институт",            x1: 18.2, y1: 44.8, x2: 28.5, y2: 47.6 },
+
+        { id: 82,  name: "Спасская",                   x1: 45.7, y1: 49.1, x2: 50.9, y2: 50.1 },
+        { id: 83,  name: "Достоевская",                x1: 62.7, y1: 46.5, x2: 69.5, y2: 47.5 },
+        { id: 84,  name: "Лиговский проспект",         x1: 68.3, y1: 47.7, x2: 74.7, y2: 52.0 },
+        { id: 85,  name: "Площадь Александра Невского — 2", x1: 78.5, y1: 46.4, x2: 96.0, y2: 47.5 },
+        { id: 86,  name: "Новочеркасская",             x1: 87.2, y1: 52.9, x2: 98.6, y2: 54.7 },
+        { id: 87,  name: "Ладожская",                  x1: 87.2, y1: 58.3, x2: 96.0, y2: 60.0 },
+        { id: 88,  name: "Проспект Большевиков",       x1: 87.2, y1: 65.6, x2: 97.0, y2: 67.8 },
+        { id: 89,  name: "Улица Дыбенко",              x1: 87.2, y1: 71.5, x2: 95.0, y2: 73.7 },
+
+        // === Линия 5 (Фрунзенско-Приморская) ===
+        { id: 100, name: "Комендантский проспект",     x1: 23.0, y1: 10.6, x2: 33.7, y2: 12.8 },
+        { id: 101, name: "Старая деревня",             x1: 23.0, y1: 15.8, x2: 33.7, y2: 17.6 },
+        { id: 102, name: "Крестовский остров",         x1: 23.0, y1: 25.8, x2: 32.6, y2: 28.0 },
+        { id: 103, name: "Чкаловская",                 x1: 26.0, y1: 31.5, x2: 34.7, y2: 33.2 },
+        { id: 104, name: "Спортивная",                 x1: 29.5, y1: 34.9, x2: 38.3, y2: 36.6 },
+        { id: 105, name: "Адмиралтейская",             x1: 30.0, y1: 45.0, x2: 39.1, y2: 46.3 },
+        { id: 106, name: "Садовая",                    x1: 44.5, y1: 46.4, x2: 49.6, y2: 47.4 },
+        { id: 107, name: "Звенигородская",             x1: 52.8, y1: 55.9, x2: 62.0, y2: 57.1 },
+        { id: 108, name: "Обводный канал",             x1: 55.7, y1: 61.2, x2: 67.2, y2: 62.8 },
+        { id: 109, name: "Волковская",                 x1: 59.6, y1: 65.1, x2: 69.0, y2: 66.7 },
+        { id: 110, name: "Бухарестская",               x1: 61.7, y1: 71.6, x2: 71.5, y2: 73.4 },
+        { id: 111, name: "Международная",              x1: 61.7, y1: 76.5, x2: 73.0, y2: 78.3 },
+        { id: 112, name: "Проспект Славы",             x1: 61.6, y1: 81.3, x2: 72.7, y2: 83.0 },
+        { id: 113, name: "Дунайская",                  x1: 61.7, y1: 85.9, x2: 70.2, y2: 87.6 },
+        { id: 114, name: "Шушары",                     x1: 61.7, y1: 90.9, x2: 68.7, y2: 92.7 },
+
+        // === Линия 6 (Красносельско-Калининская) ===
+        { id: 130, name: "Путиловская",                x1: 17.0, y1: 69.5, x2: 18.3, y2: 71.9 },
+        { id: 131, name: "Юго-Западная",               x1: 9.1,  y1: 72.5, x2: 11.0, y2: 74.2 }
+    ];
+
+    function createHitAreas() {
+        const img = document.getElementById('map-image');
+        const container = document.getElementById('map-container');
+        if (!img || !container) return;
+
+        const oldHits = document.querySelectorAll('.station-hit');
+        oldHits.forEach(h => h.remove());
+
+        const imgWidth = img.offsetWidth;
+        const imgHeight = img.offsetHeight;
+
+        stations.forEach(station => {
+            const left = (station.x1 / 100) * imgWidth;
+            const top = (station.y1 / 100) * imgHeight;
+            const width = ((station.x2 - station.x1) / 100) * imgWidth;
+            const height = ((station.y2 - station.y1) / 100) * imgHeight;
+
+            if (width <= 0 || height <= 0) return;
+
+            const hitDiv = document.createElement('div');
+            hitDiv.className = 'station-hit';
+            hitDiv.style.left = left + 'px';
+            hitDiv.style.top = top + 'px';
+            hitDiv.style.width = width + 'px';
+            hitDiv.style.height = height + 'px';
+            hitDiv.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (typeof Android !== 'undefined') {
+                    Android.showStation(station.id);
+                }
+            });
+            hitDiv.title = station.name;
+            container.appendChild(hitDiv);
+        });
+    }
+
+    window.addEventListener('load', createHitAreas);
+    window.addEventListener('resize', createHitAreas);
+
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+            const container = document.getElementById('map-container');
+            const x =
+                (container.offsetWidth - window.innerWidth) / 2;
+            const y =
+                (container.offsetHeight - window.innerHeight) / 2;
+            window.scrollTo({
+                left: x,
+                top: y,
+                behavior: 'instant'
+            });
+        }, 300);
+    });
+</script>
 </body>
 </html>

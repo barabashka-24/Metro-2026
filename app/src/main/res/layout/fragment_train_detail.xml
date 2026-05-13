@@ -2,11 +2,13 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:scrollbarStyle="outsideInset">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -14,6 +16,8 @@
             android:id="@+id/trainImage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_gravity="left"
+            android:gravity="left"
             android:scaleType="centerCrop"
             android:contentDescription="Фото поезда" />
 
@@ -21,26 +25,31 @@
             android:id="@+id/trainName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:textSize="24sp"
-            android:fontFamily="@font/nunito_bold"
-            android:layout_marginTop="16dp" />
+            android:fontFamily="@font/nunito_regular"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:id="@+id/trainHistory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
             android:fontFamily="@font/nunito_regular"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="16sp"
             android:layout_marginTop="8dp" />
 
         <Button
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="right"
             android:layout_marginTop="24dp"
             android:text="Назад"
-            android:fontFamily="@font/nunito_regular"/>
+            android:fontFamily="@font/nunito_bold"/>
 
     </LinearLayout>
 </ScrollView>

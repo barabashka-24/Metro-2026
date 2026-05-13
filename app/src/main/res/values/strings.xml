@@ -4,6 +4,7 @@
     <string name="about_title">О приложении</string>
     <string name="about_tg">Telegram</string>
     <string name="about_vk">VK</string>
+    <string name="about_github">GitHub</string>
     <string name="about_mail">Email</string>
     <string name="about_rustore">RuStore</string>
     <string name="about_logo">Логотип</string>

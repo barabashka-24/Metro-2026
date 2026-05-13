@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 data class StationEntity(
     @PrimaryKey val id: Int,
     val name: String,
-    val lineId: Int,            // 1-Кировско-Выборгская, 2-Московско-Петроградская и т.д.
+    val lineId: Int,
     val shortDescription: String,
-    val history: String,        // можно хранить HTML для форматирования
-    val imageResName: String    // имя файла картинки, например "avtovo"
+    val history: String,
+    val imageResName: String
 )

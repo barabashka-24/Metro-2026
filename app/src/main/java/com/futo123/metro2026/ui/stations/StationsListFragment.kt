@@ -32,10 +32,8 @@ class StationsListFragment : Fragment() {
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // Загружаем все станции, группируем по линиям и отображаем
         lifecycleScope.launch(Dispatchers.IO) {
             val allStations = repository.getAllStations()
-            // Группировка по lineId (1-6)
             val lines = listOf(
                 MetroLine(1, "Кировско - Выборгская", R.drawable.stations_line_1_icon, allStations.filter { it.lineId == 1 }),
                 MetroLine(2, "Московско - Петроградская", R.drawable.stations_line_2_icon, allStations.filter { it.lineId == 2 }),
@@ -45,7 +43,6 @@ class StationsListFragment : Fragment() {
                 MetroLine(6, "Красносельско - Калининская", R.drawable.stations_line_6_icon, allStations.filter { it.lineId == 6 })
             )
 
-            // Переключаемся на главный поток для работы с UI
             launch(Dispatchers.Main) {
                 binding.recyclerView.adapter = StationsExpandableAdapter(lines) { station ->
                     val bundle = Bundle().apply { putInt("stationId", station.id) }

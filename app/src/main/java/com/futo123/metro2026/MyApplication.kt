@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import com.futo123.metro2026.data.MetroDatabase
 import com.futo123.metro2026.data.StationRepository
+import com.futo123.metro2026.data.TrainRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -12,11 +13,12 @@ import kotlinx.coroutines.launch
 class MyApplication : Application() {
     lateinit var database: MetroDatabase
     lateinit var stationRepository: StationRepository
+    lateinit var trainRepository: TrainRepository
 
     override fun onCreate() {
         super.onCreate()
 
-        // Применяем сохранённую тему
+        // Применяем тему
         val prefs = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
         val themeMode = prefs.getInt("theme_mode", 0) // 0 - светлая, 1 - тёмная, 2 - как в системе
         val nightMode = when (themeMode) {
@@ -27,12 +29,14 @@ class MyApplication : Application() {
         }
         AppCompatDelegate.setDefaultNightMode(nightMode)
 
-        // Инициализация базы данных
+        // Инициализация бд
         database = MetroDatabase.getDatabase(this)
         stationRepository = StationRepository(database, this)
+        trainRepository = TrainRepository(database, this)
 
         CoroutineScope(Dispatchers.IO).launch {
             stationRepository.updateStationsIfNeeded(this@MyApplication)
+            trainRepository.updateTrainsIfNeeded(this@MyApplication)
         }
     }
 }

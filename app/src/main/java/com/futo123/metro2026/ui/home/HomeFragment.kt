@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        // Останавливаем и освобождаем MediaPlayer, чтобы не утекал
+        // Остановка и освобождение MediaPlayer
         mediaPlayer?.apply {
             if (isPlaying) stop()
             release()

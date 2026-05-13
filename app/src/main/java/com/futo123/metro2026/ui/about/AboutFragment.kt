@@ -30,7 +30,7 @@ class AboutFragment : Fragment() {
             Метро 2026
             
             Справочник по Петербургскому метрополитену
-            Версия: 1.0.2_beta
+            Версия: 1.0.3_beta
             
             ©futo123   
             
@@ -47,6 +47,9 @@ class AboutFragment : Fragment() {
         }
         binding.btnAboutVk.setOnClickListener {
             openUrl("https://vk.com/metro2026spb")
+        }
+        binding.btnAboutGithub.setOnClickListener {
+            openUrl("https://github.com/barabashka-19/Metro2026")
         }
         binding.btnAboutMail.setOnClickListener {
             composeEmail("ponomarev2016t@mail.ru", "Metro2026. Обратная связь.")
@@ -84,17 +87,17 @@ class AboutFragment : Fragment() {
     private fun playBridgeSound() {
         mediaPlayer?.let { mp ->
             if (mp.isPlaying) {
-                mp.seekTo(0)        // Перематываем в начало, если уже играет
+                mp.seekTo(0)
                 mp.start()
             } else {
-                mp.start()          // Начинаем воспроизведение
+                mp.start()
             }
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        // Останавливаем и освобождаем MediaPlayer, чтобы не утекал
+        // Остановка и освобождение MediaPlayer
         mediaPlayer?.apply {
             if (isPlaying) stop()
             release()

@@ -43,8 +43,7 @@ class StationRepository(
         val data = Gson().fromJson(json, StationsData::class.java)
 
         if (data.version > lastVersion) {
-            // Очищаем таблицу и вставляем новые данные
-            database.stationDao().deleteAll()  // нужно добавить @Query("DELETE FROM stations")
+            database.stationDao().deleteAll()
             database.stationDao().insertAll(data.stations)
             prefs.edit().putInt("stations_version", data.version).apply()
         }

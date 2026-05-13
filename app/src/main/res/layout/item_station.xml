@@ -43,6 +43,7 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:layout_marginTop="4dp"
-            android:fontFamily="@font/nunito_regular"/>
+            android:fontFamily="@font/nunito_regular"
+            />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

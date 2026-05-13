@@ -4,35 +4,37 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
-@Database(entities = [StationEntity::class], version = 1, exportSchema = false)
+@Database(
+    entities = [StationEntity::class, TrainEntity::class],
+    version = 2,
+    exportSchema = false
+)
 abstract class MetroDatabase : RoomDatabase() {
 
     abstract fun stationDao(): StationDao
-
-    // 📦 Вложенный класс обратного вызова
-    class PrepopulateCallback(private val context: Context) : Callback() {
-        override fun onCreate(db: SupportSQLiteDatabase) {
-            super.onCreate(db)
-            CoroutineScope(Dispatchers.IO).launch {
-                // Получаем базу данных через companion
-                val database = getDatabase(context)
-                val stationDao = database.stationDao()
-                val json = context.assets.open("stations.json").bufferedReader().use { it.readText() }
-                val type = object : com.google.gson.reflect.TypeToken<List<StationEntity>>() {}.type
-                val stations: List<StationEntity> = com.google.gson.Gson().fromJson(json, type)
-                stationDao.insertAll(stations)
-            }
-        }
-    }
+    abstract fun trainDao(): TrainDao
 
     companion object {
         @Volatile
         private var INSTANCE: MetroDatabase? = null
+
+        private val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("""
+                    CREATE TABLE IF NOT EXISTS `trains` (
+                        `id` INTEGER NOT NULL,
+                        `name` TEXT NOT NULL,
+                        `description` TEXT NOT NULL,
+                        `history` TEXT NOT NULL,
+                        `imageResName` TEXT NOT NULL,
+                        PRIMARY KEY(`id`)
+                    )
+                """)
+            }
+        }
 
         fun getDatabase(context: Context): MetroDatabase {
             return INSTANCE ?: synchronized(this) {
@@ -41,7 +43,7 @@ abstract class MetroDatabase : RoomDatabase() {
                     MetroDatabase::class.java,
                     "metro_db"
                 )
-                    .addCallback(PrepopulateCallback(context))   // 👈 теперь корректно
+                    .addMigrations(MIGRATION_1_2)
                     .build()
                 INSTANCE = instance
                 instance

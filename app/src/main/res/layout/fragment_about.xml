@@ -74,6 +74,17 @@
             android:stateListAnimator="@animator/scale_on_touch" />
 
         <ImageView
+            android:id="@+id/btn_about_github"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:clickable="true"
+            android:contentDescription="@string/about_github"
+            android:focusable="true"
+            android:src="@drawable/about_github"
+            android:stateListAnimator="@animator/scale_on_touch" />
+
+        <ImageView
             android:id="@+id/btn_about_mail"
             android:layout_width="40dp"
             android:layout_height="40dp"

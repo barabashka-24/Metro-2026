@@ -35,23 +35,17 @@ class StationsExpandableAdapter(
 
         val line = items[lineIndex] as MetroLine
         if (expandedLines.contains(lineId)) {
-            // СВОРАЧИВАЕМ: удаляем станции из списка
             val stationCount = line.stations.size
             items.removeAll(line.stations)
             expandedLines.remove(lineId)
 
-            // Уведомляем об удалении элементов (станций)
             notifyItemRangeRemoved(lineIndex + 1, stationCount)
-            // Обновляем заголовок (стрелочка)
             notifyItemChanged(lineIndex)
         } else {
-            // РАСКРЫВАЕМ: добавляем станции сразу после заголовка
             items.addAll(lineIndex + 1, line.stations)
             expandedLines.add(lineId)
 
-            // Уведомляем о добавлении элементов
             notifyItemRangeInserted(lineIndex + 1, line.stations.size)
-            // Обновляем заголовок
             notifyItemChanged(lineIndex)
         }
     }
@@ -88,7 +82,6 @@ class StationsExpandableAdapter(
                 val lineHolder = holder as LineViewHolder
                 val isExpanded = expandedLines.contains(item.id)
                 lineHolder.bind(item, isExpanded)
-                // Обработчик клика теперь на уровне элемента
                 lineHolder.itemView.setOnClickListener { toggleLine(item.id) }
             }
             is Station -> {

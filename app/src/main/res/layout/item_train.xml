@@ -8,7 +8,9 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,14 +18,21 @@
         android:orientation="vertical"
         android:padding="16dp"
         android:clickable="false"
-        android:focusable="false">
+        android:focusable="false"
+        android:stateListAnimator="@animator/scale_on_touch">
 
         <TextView
             android:id="@+id/trainName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:fontFamily="@font/nunito_bold" />
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="?android:attr/textColorPrimary"
+
+            android:shadowColor="@color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"/>
 
         <TextView
             android:id="@+id/trainDesc"

@@ -46,12 +46,12 @@ class MenuFragment : Fragment() {
             bridgeView.translationY = 0f
             bridgeView.animate()
                 .rotationBy(360f)
-                .translationYBy(-80f)          // высота прыжка
+                .translationYBy(-80f)
                 .setDuration(600)
                 .setInterpolator(DecelerateInterpolator())
                 .withEndAction {
                     bridgeView.animate()
-                        .translationY(0f)       // возврат с упругостью
+                        .translationY(0f)
                         .setDuration(400)
                         .setInterpolator(OvershootInterpolator(2f))
                         .start()

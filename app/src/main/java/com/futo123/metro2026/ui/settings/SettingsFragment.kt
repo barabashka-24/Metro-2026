@@ -37,7 +37,7 @@ class SettingsFragment : Fragment() {
 
         val prefs = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
 
-        // --- Настройка размера шрифта ---
+        // Настройка размера шрифта
         val currentSize = prefs.getFloat(PREF_FONT_SIZE, DEFAULT_FONT_SIZE)
         binding.fontSizeSeekBar.progress = ((currentSize - 14f) / 2).toInt()
         updateSampleText(currentSize)
@@ -52,7 +52,7 @@ class SettingsFragment : Fragment() {
             override fun onStopTrackingTouch(seekBar: android.widget.SeekBar?) {}
         })
 
-        // --- Настройка темы ---
+        // Настройка темы
         when (prefs.getInt(PREF_THEME_MODE, THEME_LIGHT)) {
             THEME_LIGHT -> binding.themeLight.isChecked = true
             THEME_DARK -> binding.themeDark.isChecked = true

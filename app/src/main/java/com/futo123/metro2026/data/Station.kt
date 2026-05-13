@@ -5,6 +5,6 @@ data class Station(
     val name: String,
     val shortDescription: String,
     val fullHistory: String,
-    val imageResId: Int, // ресурс изображения
+    val imageResId: Int,
     val lineId: Int
 )
