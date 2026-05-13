@@ -24,8 +24,8 @@
 2. Откройте папку в Android Studio.
 3. Запустите на эмуляторе или устройстве (minSdk = 29).
 
-## Ссылки
+## 🔗 Ссылки
 
-**RuStore** - rustore.ru/catalog/app/com.futo123.metro2026
-**Telegram** - t.me/metro2026spb
-**VK** - vk.com/metro2026spb
+[![RuStore](https://img.shields.io/badge/RuStore-скачать-00bfff?logo=android)](https://rustore.ru/catalog/app/com.futo123.metro2026)  
+[![Telegram](https://img.shields.io/badge/Telegram-канал-26A5E4?logo=telegram)](https://t.me/metro2026spb)  
+[![VK](https://img.shields.io/badge/VK-сообщество-0077FF?logo=vk)](https://vk.com/metro2026spb)
