@@ -1,4 +1,4 @@
-package com.futo123.metro2026.data
+package com.barabashka_24.metro2026.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

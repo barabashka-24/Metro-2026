@@ -1,4 +1,4 @@
-package com.futo123.metro2026.ui.trains
+package com.barabashka_24.metro2026.ui.trains
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,11 +9,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.futo123.metro2026.MyApplication
-import com.futo123.metro2026.R
-import com.futo123.metro2026.data.Train
-import com.futo123.metro2026.databinding.FragmentTrainsListBinding
-import com.futo123.metro2026.databinding.ItemTrainBinding
+import com.barabashka_24.metro2026.MyApplication
+import com.barabashka_24.metro2026.R
+import com.barabashka_24.metro2026.data.Train
+import com.barabashka_24.metro2026.databinding.FragmentTrainsListBinding
+import com.barabashka_24.metro2026.databinding.ItemTrainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

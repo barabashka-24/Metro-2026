@@ -1,18 +1,18 @@
-package com.futo123.metro2026.ui.about
+package com.barabashka_24.metro2026.ui.about
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.futo123.metro2026.databinding.FragmentAboutBinding
+import com.barabashka_24.metro2026.databinding.FragmentAboutBinding
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import android.widget.Toast
-import com.futo123.metro2026.R
+import com.barabashka_24.metro2026.R
 
 class AboutFragment : Fragment() {
     private var _binding: FragmentAboutBinding? = null
@@ -27,12 +27,13 @@ class AboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.textAbout.text = """
-            Метро 2026
+            Metro 2026
             
             Справочник по Петербургскому метрополитену
-            Версия: 1.0.3_beta
+            Версия: 1.0.4
             
-            ©futo123   
+            ©barabashka_24  
+            UI-поддержка: DanaEsko
             
         """.trimIndent()
 
@@ -49,13 +50,13 @@ class AboutFragment : Fragment() {
             openUrl("https://vk.com/metro2026spb")
         }
         binding.btnAboutGithub.setOnClickListener {
-            openUrl("https://github.com/barabashka-19/Metro2026")
+            openUrl("https://github.com/barabashka-24/Metro2026")
         }
         binding.btnAboutMail.setOnClickListener {
-            composeEmail("ponomarev2016t@mail.ru", "Metro2026. Обратная связь.")
+            composeEmail("barabashka-24@bk.ru", "Metro 2026. Обратная связь.")
         }
         binding.btnAboutRustore.setOnClickListener {
-            openUrl("https://www.rustore.ru/catalog/app/com.futo123.metro2026")
+            openUrl("https://www.rustore.ru/catalog/app/com.barabashka_24.metro2026")
         }
     }
 

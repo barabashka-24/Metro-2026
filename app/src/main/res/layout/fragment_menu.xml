@@ -244,10 +244,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gridLayout2"
             app:layout_constraintVertical_bias="0.94">
@@ -258,6 +259,7 @@
                 android:stateListAnimator="@animator/scale_on_touch"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:clickable="true"
                 android:focusable="true"
                 >
@@ -287,6 +289,7 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:focusable="true"
+                android:layout_marginLeft="10dp"
                 >
 
                 <ImageView

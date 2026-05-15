@@ -1,4 +1,4 @@
-package com.futo123.metro2026.ui.theme
+package com.barabashka_24.metro2026.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

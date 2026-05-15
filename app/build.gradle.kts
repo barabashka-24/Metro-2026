@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.futo123.metro2026"
+    namespace = "com.barabashka_24.metro2026"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -13,11 +13,11 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.futo123.metro2026"
-        minSdk = 29
+        applicationId = "com.barabashka_24.metro2026"
+        minSdk = 26
         targetSdk = 36
-        versionCode = 4
-        versionName = "1.0.3"
+        versionCode = 5
+        versionName = "1.0.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -61,15 +61,15 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
 
     // Room
-    val roomVersion = "2.6.1"
+    val roomVersion = "2.8.4"
     implementation("androidx.room:room-runtime:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion") // для корутин, если нужны
+    implementation("androidx.room:room-ktx:$roomVersion")
 
     // Gson
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.google.code.gson:gson:2.14.0")
 
-    // Lifecycle (для LiveData, ViewModel – опционально, но удобно)
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    // Lifecycle
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.10.0")
 }

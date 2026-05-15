@@ -1,4 +1,4 @@
-package com.futo123.metro2026.ui.menu
+package com.barabashka_24.metro2026.ui.menu
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.futo123.metro2026.databinding.FragmentMenuBinding
-import com.futo123.metro2026.R
+import com.barabashka_24.metro2026.databinding.FragmentMenuBinding
+import com.barabashka_24.metro2026.R
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.OvershootInterpolator
 

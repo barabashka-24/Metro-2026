@@ -1,11 +1,11 @@
-package com.futo123.metro2026
+package com.barabashka_24.metro2026
 
 import android.app.Application
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
-import com.futo123.metro2026.data.MetroDatabase
-import com.futo123.metro2026.data.StationRepository
-import com.futo123.metro2026.data.TrainRepository
+import com.barabashka_24.metro2026.data.MetroDatabase
+import com.barabashka_24.metro2026.data.StationRepository
+import com.barabashka_24.metro2026.data.TrainRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -38,5 +38,7 @@ class MyApplication : Application() {
             stationRepository.updateStationsIfNeeded(this@MyApplication)
             trainRepository.updateTrainsIfNeeded(this@MyApplication)
         }
+
+
     }
 }

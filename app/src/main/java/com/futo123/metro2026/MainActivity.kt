@@ -1,9 +1,9 @@
-package com.futo123.metro2026
+package com.barabashka_24.metro2026
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
-import com.futo123.metro2026.databinding.ActivityMainBinding
+import com.barabashka_24.metro2026.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

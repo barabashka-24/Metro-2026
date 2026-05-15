@@ -1,4 +1,4 @@
-package com.futo123.metro2026.ui.settings
+package com.barabashka_24.metro2026.ui.settings
 
 import android.content.Context
 import android.os.Bundle
@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import com.futo123.metro2026.databinding.FragmentSettingsBinding
-import com.futo123.metro2026.R
+import com.barabashka_24.metro2026.databinding.FragmentSettingsBinding
+import com.barabashka_24.metro2026.R
 import android.widget.SeekBar
 
 class SettingsFragment : Fragment() {

@@ -1,13 +1,13 @@
-package com.futo123.metro2026.ui.stations
+package com.barabashka_24.metro2026.ui.stations
 
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.futo123.metro2026.data.MetroLine
-import com.futo123.metro2026.data.Station
-import com.futo123.metro2026.databinding.ItemLineHeaderBinding
-import com.futo123.metro2026.databinding.ItemStationBinding
+import com.barabashka_24.metro2026.data.MetroLine
+import com.barabashka_24.metro2026.data.Station
+import com.barabashka_24.metro2026.databinding.ItemLineHeaderBinding
+import com.barabashka_24.metro2026.databinding.ItemStationBinding
 
 class StationsExpandableAdapter(
     private val lines: List<MetroLine>,

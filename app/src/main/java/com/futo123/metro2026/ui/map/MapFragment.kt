@@ -1,4 +1,4 @@
-package com.futo123.metro2026.ui.map
+package com.barabashka_24.metro2026.ui.map
 
 import android.os.Bundle
 import android.util.Log
@@ -10,10 +10,10 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.futo123.metro2026.MyApplication
-import com.futo123.metro2026.R
-import com.futo123.metro2026.data.Station
-import com.futo123.metro2026.databinding.FragmentMapBinding
+import com.barabashka_24.metro2026.MyApplication
+import com.barabashka_24.metro2026.R
+import com.barabashka_24.metro2026.data.Station
+import com.barabashka_24.metro2026.databinding.FragmentMapBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -57,8 +57,12 @@ class MapFragment : Fragment() {
                     isVerticalScrollBarEnabled = false
                     addJavascriptInterface(WebAppInterface(), "Android")
                     loadUrl("file:///android_asset/metro_map.html")
+                    binding.webView.settings.loadsImagesAutomatically = true
+                    // Поднять приоритет
+                    binding.webView.setNetworkAvailable(true)
                 }
             }
+            binding.webView.setLayerType(View.LAYER_TYPE_HARDWARE, null)
         }
     }
 

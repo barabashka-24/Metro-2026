@@ -1,13 +1,12 @@
-package com.futo123.metro2026.ui.general
+package com.barabashka_24.metro2026.ui.general
 
 import android.os.Bundle
 import android.text.Html
-import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.futo123.metro2026.databinding.FragmentGeneralInfoBinding
+import com.barabashka_24.metro2026.databinding.FragmentGeneralInfoBinding
 
 class GeneralInfoFragment : Fragment() {
     private var _binding: FragmentGeneralInfoBinding? = null
@@ -53,7 +52,7 @@ class GeneralInfoFragment : Fragment() {
             <b>2008</b> — Фрунзенско‑Приморская линия.<br>
             <b>2025</b> — Красносельско‑Калининская линия.</p>
             
-            <p><i>Metro2026 — ваш путеводитель по истории подземки Северной столицы.</i></p>
+            <p><i>Metro 2026 — ваш путеводитель по истории подземки Северной столицы.</i></p>
         """.trimIndent()
 
         binding.textInfo.text = Html.fromHtml(htmlText, Html.FROM_HTML_MODE_LEGACY)

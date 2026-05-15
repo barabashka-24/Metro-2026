@@ -1,4 +1,4 @@
-package com.futo123.metro2026.ui.stations
+package com.barabashka_24.metro2026.ui.stations
 
 import android.os.Bundle
 import android.text.Html
@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.futo123.metro2026.MyApplication
-import com.futo123.metro2026.databinding.FragmentStationDetailBinding
+import com.barabashka_24.metro2026.MyApplication
+import com.barabashka_24.metro2026.databinding.FragmentStationDetailBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import android.content.Context
