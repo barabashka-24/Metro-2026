@@ -55,7 +55,7 @@ class HelpFragment : Fragment() {
             <p>&emsp;Используйте кнопку <b>«Назад»</b> в конце статьи или системную кнопку вашего устройства.</p>
             
             <h3>ℹ️ Источники</h3>
-            <p>&emsp;Информация для статей:<br>
+            <p>Информация для статей:<br>
             <a href="http://www.metro.spb.ru">www.metro.spb.ru</a></p>
             <p>Схема метро для интерактивной карты:<br>
             <a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%B9_%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BC%D0%B5%D1%82%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D0%B8%D1%82%D0%B5%D0%BD%D0%B0">Alex 'Florstein' Fedorov via wikipedia CC BY-SA 4.0</a></p>

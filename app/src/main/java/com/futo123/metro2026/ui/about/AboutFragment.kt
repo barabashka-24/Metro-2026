@@ -50,7 +50,7 @@ class AboutFragment : Fragment() {
             openUrl("https://vk.com/metro2026spb")
         }
         binding.btnAboutGithub.setOnClickListener {
-            openUrl("https://github.com/barabashka-24/Metro2026")
+            openUrl("https://github.com/barabashka-24/Metro-2026")
         }
         binding.btnAboutMail.setOnClickListener {
             composeEmail("barabashka-24@bk.ru", "Metro 2026. Обратная связь.")

@@ -22,7 +22,7 @@
             android:fontFamily="@font/rocknrollone_regular"
             android:gravity="center_horizontal"
             android:letterSpacing="-0.3"
-            android:text="Меню"
+            android:text="   Меню   "
             android:textColor="@color/black"
             android:textColorHighlight="@color/white"
             android:textSize="50sp"
