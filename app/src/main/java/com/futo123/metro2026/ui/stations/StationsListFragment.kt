@@ -40,7 +40,8 @@ class StationsListFragment : Fragment() {
                 MetroLine(3, "Невско - Василеостровская", R.drawable.stations_line_3_icon, allStations.filter { it.lineId == 3 }),
                 MetroLine(4, "Лахтинско - Правобережная", R.drawable.stations_line_4_icon, allStations.filter { it.lineId == 4 }),
                 MetroLine(5, "Фрунзенско - Приморская", R.drawable.stations_line_5_icon, allStations.filter { it.lineId == 5 }),
-                MetroLine(6, "Красносельско - Калининская", R.drawable.stations_line_6_icon, allStations.filter { it.lineId == 6 })
+                MetroLine(6, "Красносельско - Калининская", R.drawable.stations_line_6_icon, allStations.filter { it.lineId == 6 }),
+                MetroLine(7, "Кольцевая", R.drawable.stations_line_7_icon, allStations.filter { it.lineId == 7 })
             )
 
             launch(Dispatchers.Main) {

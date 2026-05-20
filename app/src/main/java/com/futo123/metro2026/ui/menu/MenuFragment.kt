@@ -34,10 +34,38 @@ class MenuFragment : Fragment() {
         binding.btnStations.setOnClickListener {
             findNavController().navigate(R.id.action_menu_to_stations_list)
         }
-        binding.btnAbout.setOnClickListener {
+        binding.btnAbout.setOnClickListener {aboutView ->
+            aboutView.animate().cancel()
+            aboutView.translationY = 0f
+            aboutView.animate()
+                .translationYBy(-50f)
+                .setDuration(600)
+                .setInterpolator(DecelerateInterpolator())
+                .withEndAction {
+                    aboutView.animate()
+                        .translationY(0f)
+                        .setDuration(400)
+                        .setInterpolator(OvershootInterpolator(2f))
+                        .start()
+                }
+                .start()
             findNavController().navigate(R.id.action_menu_to_about)
         }
-        binding.btnHelp.setOnClickListener {
+        binding.btnHelp.setOnClickListener {helpView ->
+            helpView.animate().cancel()
+            helpView.translationY = 0f
+            helpView.animate()
+                .translationYBy(-50f)
+                .setDuration(600)
+                .setInterpolator(DecelerateInterpolator())
+                .withEndAction {
+                    helpView.animate()
+                        .translationY(0f)
+                        .setDuration(400)
+                        .setInterpolator(OvershootInterpolator(2f))
+                        .start()
+                }
+                .start()
             findNavController().navigate(R.id.action_menu_to_help)
         }
         binding.menuBridge.setOnClickListener { bridgeView ->
@@ -47,7 +75,7 @@ class MenuFragment : Fragment() {
             bridgeView.animate()
                 .rotationBy(360f)
                 .translationYBy(-80f)
-                .setDuration(600)
+                .setDuration(650)
                 .setInterpolator(DecelerateInterpolator())
                 .withEndAction {
                     bridgeView.animate()

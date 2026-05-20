@@ -1,5 +1,6 @@
 package com.barabashka_24.metro2026.ui.trains
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Html
 import android.view.LayoutInflater
@@ -39,6 +40,13 @@ class TrainDetailFragment : Fragment() {
                     binding.trainImage.setImageResource(train.imageResId)
                     binding.trainName.text = train.name
                     binding.trainHistory.text = Html.fromHtml(train.history, Html.FROM_HTML_MODE_LEGACY)
+
+                    val prefs = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+                    val fontSize = prefs.getFloat("pref_font_size", 16f)
+                    binding.trainHistory.textSize = fontSize
+                } else {
+                    binding.trainName.text = "Электропоезд не найден"
+                    binding.trainHistory.text = ""
                 }
             }
         }

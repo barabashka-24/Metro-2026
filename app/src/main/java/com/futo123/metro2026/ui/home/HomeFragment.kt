@@ -10,6 +10,8 @@ import com.barabashka_24.metro2026.databinding.FragmentHomeBinding
 import com.barabashka_24.metro2026.R
 import android.media.MediaPlayer
 import android.content.Context
+import android.view.animation.DecelerateInterpolator
+import android.view.animation.OvershootInterpolator
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -26,12 +28,29 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnMenu.setOnClickListener {
+        binding.btnMenu.setOnClickListener { menuView ->
+            menuView.animate().cancel()
+            menuView.rotation = 0f
+            menuView.animate()
+                .rotationBy(360f)
+                .setDuration(400)
+                .start()
             findNavController().navigate(R.id.action_home_to_menu)
         }
-        binding.btnSettings.setOnClickListener {
+
+        binding.btnSettings.setOnClickListener { settingsView ->
+            settingsView.animate().cancel()
+            settingsView.rotation = 0f
+            settingsView.animate()
+                .rotationBy(360f)
+                .setDuration(400)
+                .start()
             findNavController().navigate(R.id.action_home_to_settings)
         }
+
+
+
+
         mediaPlayer = MediaPlayer.create(requireContext(), R.raw.home_metro_spb_logo).apply {}
         val prefs = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
         val volume = prefs.getInt("pref_volume", 100) / 100f  // 0.0 .. 1.0

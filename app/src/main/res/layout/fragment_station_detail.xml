@@ -3,27 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:scrollbarStyle="outsideInset">
+    android:scrollbarStyle="outsideOverlay">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="vertical"
-        android:padding="16dp"
+
         >
 
         <ImageView
             android:id="@+id/stationImage"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:scaleType="centerCrop"
+            android:layout_height="500dp"
+            android:scaleType="fitCenter"
+
             android:contentDescription="Фото станции" />
 
         <TextView
             android:id="@+id/stationName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="24sp"
@@ -36,6 +38,7 @@
             android:id="@+id/stationHistory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:fontFamily="@font/nunito_regular"
             android:textColor="?android:attr/textColorSecondary"
             android:textSize="16sp"
@@ -45,6 +48,7 @@
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:layout_gravity="right"
             android:layout_marginTop="24dp"
             android:text="Назад"

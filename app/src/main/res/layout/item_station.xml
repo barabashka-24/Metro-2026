@@ -30,10 +30,7 @@
             android:fontFamily="@font/nunito_bold"
             android:textColor="@color/black"
 
-            android:shadowColor="@color/black"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="1"
+
 
             />
 

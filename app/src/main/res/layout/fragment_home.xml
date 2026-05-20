@@ -36,8 +36,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935" />
+        app:layout_constraintTop_toBottomOf="@+id/home_metro_spb_logo"
+        app:layout_constraintVertical_bias="0.6" />
 
     <ImageButton
         android:id="@+id/btn_menu"

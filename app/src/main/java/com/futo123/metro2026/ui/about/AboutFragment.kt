@@ -30,7 +30,7 @@ class AboutFragment : Fragment() {
             Metro 2026
             
             Справочник по Петербургскому метрополитену
-            Версия: 1.0.4
+            Версия: 1.0.5
             
             ©barabashka_24  
             UI-поддержка: DanaEsko

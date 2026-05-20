@@ -1,5 +1,6 @@
 package com.barabashka_24.metro2026.ui.general
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Html
 import android.view.LayoutInflater
@@ -54,7 +55,11 @@ class GeneralInfoFragment : Fragment() {
             
             <p><i>Metro 2026 — ваш путеводитель по истории подземки Северной столицы.</i></p>
         """.trimIndent()
-
+        val prefs = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val fontSize = prefs.getFloat("pref_font_size", 16f)
+        binding.textInfo.textSize = fontSize
+        binding.map1986Name.textSize = fontSize
+        binding.mapProject2020Name.textSize = fontSize
         binding.textInfo.text = Html.fromHtml(htmlText, Html.FROM_HTML_MODE_LEGACY)
     }
 

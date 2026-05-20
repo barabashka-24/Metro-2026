@@ -1,5 +1,6 @@
 package com.barabashka_24.metro2026.ui.help
 
+import android.content.Context
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
@@ -56,13 +57,20 @@ class HelpFragment : Fragment() {
             
             <h3>ℹ️ Источники</h3>
             <p>Информация для статей:<br>
-            <a href="http://www.metro.spb.ru">www.metro.spb.ru</a></p>
+            <a href="http://www.metro.spb.ru">www.metro.spb.ru</a><br>
+            <a href="https://metro.vpeterburge.ru/">metro.vpeterburge.ru</a><br>
+            <a href="https://ru.wikipedia.org/">ru.wikipedia.org</a></p>
             <p>Схема метро для интерактивной карты:<br>
             <a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D0%B9_%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BC%D0%B5%D1%82%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D0%B8%D1%82%D0%B5%D0%BD%D0%B0">Alex 'Florstein' Fedorov via wikipedia CC BY-SA 4.0</a></p>
             <p>Иконки:<br>
-            <a href="https://icons8.com/">icons8.com</a></p>
+            <a href="https://icons8.com/">icons8.com</a><br>
+            <a href="https://www.flaticon.com/">www.flaticon.com</a></p>
             
         """.trimIndent()
+
+        val prefs = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val fontSize = prefs.getFloat("pref_font_size", 16f)
+        binding.textHelp.textSize = fontSize
 
         val spanned: Spanned = Html.fromHtml(htmlText, Html.FROM_HTML_MODE_LEGACY)
         binding.textHelp.text = spanned
